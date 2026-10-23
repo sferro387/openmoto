@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+export PLATFORMIO_CORE_DIR="$repo_dir/.tools/platformio"
+exec "$repo_dir/.tools/pio-venv/bin/pio" "$@"

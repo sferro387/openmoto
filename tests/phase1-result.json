@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "environment": "loopback_8mhz",
+  "module_crystal_marking_user_reported": "8000",
+  "port": "/dev/cu.usbmodem21101",
+  "usb_vid_pid": "2341:0042",
+  "usb_serial": "34530303238351110202",
+  "mcu_signature": "0x1e9801",
+  "flash_bytes": 5932,
+  "static_ram_bytes": 239,
+  "flash_upload_verified": true,
+  "serial_baud": 115200,
+  "consecutive_matching_frames": 20,
+  "sequence_first": 0,
+  "sequence_last": 19,
+  "hardware_scope": "MCP2515 internal loopback only",
+  "firmware_hex_sha256": "1f4bb0f521066036af00cf34ec3e4ece92ccaf7de29146d6328cbe2fb0cbbff6",
+  "serial_log_sha256": "ee8bd8069dff48036e8544da6080c61d37c478d603ccdb09851d6532b1505490"
+}

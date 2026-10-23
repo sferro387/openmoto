@@ -1,0 +1,23 @@
+OpenMoto INTERNAL LOOPBACK ONLY
+MCP crystal MHz=8
+READY loopback nominal_bitrate=500000
+PASS seq=0 id=0x123 dlc=8 matched=8 total=1
+PASS seq=1 id=0x123 dlc=8 matched=8 total=2
+PASS seq=2 id=0x123 dlc=8 matched=8 total=3
+PASS seq=3 id=0x123 dlc=8 matched=8 total=4
+PASS seq=4 id=0x123 dlc=8 matched=8 total=5
+PASS seq=5 id=0x123 dlc=8 matched=8 total=6
+PASS seq=6 id=0x123 dlc=8 matched=8 total=7
+PASS seq=7 id=0x123 dlc=8 matched=8 total=8
+PASS seq=8 id=0x123 dlc=8 matched=8 total=9
+PASS seq=9 id=0x123 dlc=8 matched=8 total=10
+PASS seq=10 id=0x123 dlc=8 matched=8 total=11
+PASS seq=11 id=0x123 dlc=8 matched=8 total=12
+PASS seq=12 id=0x123 dlc=8 matched=8 total=13
+PASS seq=13 id=0x123 dlc=8 matched=8 total=14
+PASS seq=14 id=0x123 dlc=8 matched=8 total=15
+PASS seq=15 id=0x123 dlc=8 matched=8 total=16
+PASS seq=16 id=0x123 dlc=8 matched=8 total=17
+PASS seq=17 id=0x123 dlc=8 matched=8 total=18
+PASS seq=18 id=0x123 dlc=8 matched=8 total=19
+PASS seq=19 id=0x123 dlc=8 matched=8 total=20
