@@ -1,0 +1,228 @@
+{
+  "phase": 2,
+  "result": "PASS_ON_REAL_HARDWARE",
+  "completed_at": "2026-10-23T06:27:55.909496+00:00",
+  "environment": "physical_dual_8mhz",
+  "board": "ELEGOO Mega 2560 R3",
+  "port": "/dev/cu.usbmodem21101",
+  "usb_vid_pid": "2341:0042",
+  "usb_serial": "34530303238351110202",
+  "baud": 115200,
+  "can_bitrate": 500000,
+  "module_oscillators_mhz": [
+    8,
+    8
+  ],
+  "test_mode": "NORMAL (CANSTAT verified by firmware)",
+  "after_test_modes": [
+    "CONFIG",
+    "CONFIG"
+  ],
+  "flash_bytes_written_and_verified": 9746,
+  "upload_exit_status": 0,
+  "capture_exit_status": 0,
+  "initialization": {
+    "controller1_spi": "PASS",
+    "controller2_spi": "PASS",
+    "controller1_bitrate": "PASS",
+    "controller2_bitrate": "PASS",
+    "controller1_normal": "PASS",
+    "controller2_normal": "PASS"
+  },
+  "stages": [
+    {
+      "test": "B",
+      "direction": "CAN1 -> CAN2",
+      "requested": 100,
+      "queued": 100,
+      "transmitted": 100,
+      "received": 100,
+      "verified": 100,
+      "timeouts": 0,
+      "missing": 0,
+      "payload_mismatches": 0,
+      "duplicates": 0,
+      "unexpected": 0,
+      "sequence_errors": 0,
+      "api_errors": 0,
+      "controller_error_observations": 0,
+      "duration_ms": 852,
+      "controllers": [
+        {
+          "node": 1,
+          "tec": 0,
+          "rec": 0,
+          "sampled_peak_tec": 0,
+          "sampled_peak_rec": 0,
+          "eflg_or": 0,
+          "errint_or": 0
+        },
+        {
+          "node": 2,
+          "tec": 0,
+          "rec": 0,
+          "sampled_peak_tec": 0,
+          "sampled_peak_rec": 0,
+          "eflg_or": 0,
+          "errint_or": 0
+        }
+      ]
+    },
+    {
+      "test": "C",
+      "direction": "CAN2 -> CAN1",
+      "requested": 100,
+      "queued": 100,
+      "transmitted": 100,
+      "received": 100,
+      "verified": 100,
+      "timeouts": 0,
+      "missing": 0,
+      "payload_mismatches": 0,
+      "duplicates": 0,
+      "unexpected": 0,
+      "sequence_errors": 0,
+      "api_errors": 0,
+      "controller_error_observations": 0,
+      "duration_ms": 853,
+      "controllers": [
+        {
+          "node": 1,
+          "tec": 0,
+          "rec": 0,
+          "sampled_peak_tec": 0,
+          "sampled_peak_rec": 0,
+          "eflg_or": 0,
+          "errint_or": 0
+        },
+        {
+          "node": 2,
+          "tec": 0,
+          "rec": 0,
+          "sampled_peak_tec": 0,
+          "sampled_peak_rec": 0,
+          "eflg_or": 0,
+          "errint_or": 0
+        }
+      ]
+    },
+    {
+      "test": "D",
+      "direction": "CAN1 -> CAN2",
+      "requested": 1000,
+      "queued": 1000,
+      "transmitted": 1000,
+      "received": 1000,
+      "verified": 1000,
+      "timeouts": 0,
+      "missing": 0,
+      "payload_mismatches": 0,
+      "duplicates": 0,
+      "unexpected": 0,
+      "sequence_errors": 0,
+      "api_errors": 0,
+      "controller_error_observations": 0,
+      "duration_ms": 8535,
+      "controllers": [
+        {
+          "node": 1,
+          "tec": 0,
+          "rec": 0,
+          "sampled_peak_tec": 0,
+          "sampled_peak_rec": 0,
+          "eflg_or": 0,
+          "errint_or": 0
+        },
+        {
+          "node": 2,
+          "tec": 0,
+          "rec": 0,
+          "sampled_peak_tec": 0,
+          "sampled_peak_rec": 0,
+          "eflg_or": 0,
+          "errint_or": 0
+        }
+      ]
+    },
+    {
+      "test": "D",
+      "direction": "CAN2 -> CAN1",
+      "requested": 1000,
+      "queued": 1000,
+      "transmitted": 1000,
+      "received": 1000,
+      "verified": 1000,
+      "timeouts": 0,
+      "missing": 0,
+      "payload_mismatches": 0,
+      "duplicates": 0,
+      "unexpected": 0,
+      "sequence_errors": 0,
+      "api_errors": 0,
+      "controller_error_observations": 0,
+      "duration_ms": 8535,
+      "controllers": [
+        {
+          "node": 1,
+          "tec": 0,
+          "rec": 0,
+          "sampled_peak_tec": 0,
+          "sampled_peak_rec": 0,
+          "eflg_or": 0,
+          "errint_or": 0
+        },
+        {
+          "node": 2,
+          "tec": 0,
+          "rec": 0,
+          "sampled_peak_tec": 0,
+          "sampled_peak_rec": 0,
+          "eflg_or": 0,
+          "errint_or": 0
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "requested": 2200,
+    "queued": 2200,
+    "transmitted": 2200,
+    "received": 2200,
+    "verified": 2200,
+    "timeouts": 0,
+    "missing": 0,
+    "payload_mismatches": 0,
+    "duplicates": 0,
+    "unexpected": 0,
+    "sequence_errors": 0,
+    "api_errors": 0,
+    "controller_error_observations": 0
+  },
+  "suite_duration_ms": 18996,
+  "evidence": {
+    "upload": "tests/phase2-upload-20261023T062731Z.log",
+    "serial": "tests/phase2-serial-20261023T062731Z.log",
+    "capture": "tests/phase2-capture-20261023T062731Z.log",
+    "run": "tests/phase2-run-20261023T062731Z.json"
+  },
+  "sha256": {
+    "upload": "955ee8fee3bf5411b2a306f5ade3c120c086ba173406e27a87a40d5d756bbd45",
+    "serial": "a5c0c438d951c4cea898643f4bb5e1aaef0a7006435d7f565e2563130cf6b2b6",
+    "capture": "038dd33ef725200ca5cd0a8c5a2c594f909a1ced89aa2e01642898b87efb7564",
+    "firmware_hex": "efd7a1602871970774de550f874cd1fea0ee78184dcd19b5b0fff7f1f9cb754b"
+  },
+  "user_reported_termination_networks_ohms": [
+    109.6,
+    109.8
+  ],
+  "user_reported_completed_bus_ohms": [
+    54.9,
+    55.0
+  ],
+  "scope": "Short USB-only isolated physical CAN bench; no motorcycle/ECU/OBD/12V; no Phase 3",
+  "limits": [
+    "Paced sequential traffic, not simultaneous or maximum throughput.",
+    "TEC/REC and flags are sampled; this does not certify zero physical bit errors between samples.",
+    "No interrupt validation, automotive transient/EMI qualification or vehicle protocol testing."
+  ]
+}

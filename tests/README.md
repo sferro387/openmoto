@@ -18,3 +18,28 @@ Initial builds were blocked by the Intel compiler before Rosetta installation.
 16/20 MHz builds were not repeated because the actual module is confirmed 8 MHz.
 Physical CAN signaling, transceiver, INT, oscillator frequency measurement,
 vehicle diagnostics, and service resets remain untested.
+
+## Phase 2 software preflight
+
+`python3 tests/test_phase2_firmware.py` compiles actual Phase 2 firmware against
+minimal host-only hardware stubs; 21 clean/fault cases pass. Cases include absent
+controller, shared CS, wrong bit timing/mode, missing/duplicate/malformed frames,
+controller errors, pending TX completion timeout and stop failure. These are
+software checks, not physical CAN results. Phase 2 builds successfully; actual
+upload, resistance measurements and physical tests are pending. See phase2-preflight.json
+and docs/phase2.md. Phase 1 evidence above remains unchanged.
+
+Latest Phase 2 preflight: user reports both 8 MHz modules and wiring checks.
+Rebuild PASS; 9746 bytes flash, 361 bytes static RAM. See
+phase2-build-20261023T062058Z.log. Port enumerated without opening it. Actual
+Phase 2 upload and physical testing remain NOT RUN, awaiting explicit approval.
+
+## Phase 2 actual hardware result: PASS
+
+See [phase2-serial-20261023T062731Z.log](phase2-serial-20261023T062731Z.log) for complete raw MCU
+output and [phase2-result-20261023T062731Z.json](phase2-result-20261023T062731Z.json) for parsed
+counts, durations, counters and evidence hashes. All 9746 flash bytes were
+verified. Both SPI/bitrate/NORMAL initialization checks passed. Initial 100 and
+reliability 1000 frames each way all passed: 2200 TX/RX/verified, zero reported
+errors/timeouts, suite 18996 ms. Both controllers stopped in CONFIG. No vehicle,
+OBD or Phase 3 work. Previous pending-status notes above describe earlier preflight.

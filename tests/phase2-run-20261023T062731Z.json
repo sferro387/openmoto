@@ -1,0 +1,16 @@
+{
+  "started_at": "2026-10-23T06:27:31.256395+00:00",
+  "environment": "physical_dual_8mhz",
+  "port": "/dev/cu.usbmodem21101",
+  "baud": 115200,
+  "user_authorization": "Explicit approval to upload this environment to this port and capture physical tests",
+  "paths": {
+    "upload": "tests/phase2-upload-20261023T062731Z.log",
+    "serial": "tests/phase2-serial-20261023T062731Z.log",
+    "capture": "tests/phase2-capture-20261023T062731Z.log",
+    "run": "tests/phase2-run-20261023T062731Z.json"
+  },
+  "upload_exit_status": 0,
+  "capture_exit_status": 0,
+  "finished_at": "2026-10-23T06:27:55.909496+00:00"
+}

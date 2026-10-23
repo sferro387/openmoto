@@ -34,3 +34,14 @@ disconnected; OBD cable and motorcycle are not connected.
 
 User requires explicit confirmation before firmware upload, after successful
 compilation and USB serial port identification.
+
+## Phase 2 isolated dual-controller bench
+
+Use the full [Phase 2 wiring and resistance procedure](phase2.md). It adds CS D9,
+INT D3 and a terminated CAN-H/L pair. Its hardware confirmation is independent
+of the Phase 1 checks above. Disconnect USB before modifying the circuit.
+
+Phase 2 physical test passed using both user-confirmed 8 MHz modules, USB-only
+power, and reported termination network readings 109.6/109.8 ohms (bus
+54.9–55.0 ohms). Detailed actual checks and results are in phase2.md. Both
+controllers returned to CONFIG after the test; disconnect USB before rewiring.

@@ -1,0 +1,88 @@
+OpenMoto Phase 2
+Board: ELEGOO Mega 2560
+CAN Controllers: 2 x MCP2515
+Oscillators: 8 MHz; Bitrate: 500000; SPI: 1000000
+ISOLATED BENCH ONLY; no OBD, ECU, motorcycle or external 12V
+Test A - independent SPI and initialization
+MCP2515 #1 SPI: PASS
+MCP2515 #2 SPI: PASS
+MCP2515 #1 initialized 500k/8MHz: PASS
+MCP2515 #2 initialized 500k/8MHz: PASS
+MCP2515 #1 NORMAL: PASS
+MCP2515 #2 NORMAL: PASS
+Test B CAN1 -> CAN2 requested=100
+Frames requested: 100
+Frames queued: 100
+Frames transmitted (TX complete): 100
+Frames received: 100
+Frames verified: 100
+Timeouts: 0
+Missing frames: 0
+Payload mismatches: 0
+Duplicate frames: 0
+Unexpected frames: 0
+Sequence errors: 0
+SPI/library/TX API errors: 0
+CAN controller error observations: 0
+MCP2515 #1 TEC=0 REC=0 sampled_peak_TEC=0 sampled_peak_REC=0 EFLG_OR=0x0 ERRINT_OR=0x0
+MCP2515 #2 TEC=0 REC=0 sampled_peak_TEC=0 sampled_peak_REC=0 EFLG_OR=0x0 ERRINT_OR=0x0
+Duration ms: 852
+TEST: PASS
+Test C CAN2 -> CAN1 requested=100
+Frames requested: 100
+Frames queued: 100
+Frames transmitted (TX complete): 100
+Frames received: 100
+Frames verified: 100
+Timeouts: 0
+Missing frames: 0
+Payload mismatches: 0
+Duplicate frames: 0
+Unexpected frames: 0
+Sequence errors: 0
+SPI/library/TX API errors: 0
+CAN controller error observations: 0
+MCP2515 #1 TEC=0 REC=0 sampled_peak_TEC=0 sampled_peak_REC=0 EFLG_OR=0x0 ERRINT_OR=0x0
+MCP2515 #2 TEC=0 REC=0 sampled_peak_TEC=0 sampled_peak_REC=0 EFLG_OR=0x0 ERRINT_OR=0x0
+Duration ms: 853
+TEST: PASS
+Test D CAN1 -> CAN2 requested=1000
+Frames requested: 1000
+Frames queued: 1000
+Frames transmitted (TX complete): 1000
+Frames received: 1000
+Frames verified: 1000
+Timeouts: 0
+Missing frames: 0
+Payload mismatches: 0
+Duplicate frames: 0
+Unexpected frames: 0
+Sequence errors: 0
+SPI/library/TX API errors: 0
+CAN controller error observations: 0
+MCP2515 #1 TEC=0 REC=0 sampled_peak_TEC=0 sampled_peak_REC=0 EFLG_OR=0x0 ERRINT_OR=0x0
+MCP2515 #2 TEC=0 REC=0 sampled_peak_TEC=0 sampled_peak_REC=0 EFLG_OR=0x0 ERRINT_OR=0x0
+Duration ms: 8535
+TEST: PASS
+Test D CAN2 -> CAN1 requested=1000
+Frames requested: 1000
+Frames queued: 1000
+Frames transmitted (TX complete): 1000
+Frames received: 1000
+Frames verified: 1000
+Timeouts: 0
+Missing frames: 0
+Payload mismatches: 0
+Duplicate frames: 0
+Unexpected frames: 0
+Sequence errors: 0
+SPI/library/TX API errors: 0
+CAN controller error observations: 0
+MCP2515 #1 TEC=0 REC=0 sampled_peak_TEC=0 sampled_peak_REC=0 EFLG_OR=0x0 ERRINT_OR=0x0
+MCP2515 #2 TEC=0 REC=0 sampled_peak_TEC=0 sampled_peak_REC=0 EFLG_OR=0x0 ERRINT_OR=0x0
+Duration ms: 8535
+TEST: PASS
+MCP2515 #1 stopped: CONFIG
+MCP2515 #2 stopped: CONFIG
+Total duration ms: 18996
+PHASE 2: PASS

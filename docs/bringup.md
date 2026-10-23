@@ -196,3 +196,68 @@ agent session may need execution approval. No physical CAN, TJA1050 transceiver,
 interrupt wiring, OBD/vehicle protocol, or service reset has been validated.
 The firmware remains loopback-only and continues running after capture closes.
 Disconnect USB before changing any wiring.
+
+## Phase 2 development
+
+The Phase 1 state was committed as 9b0ac61 and tagged phase1-verified-loopback
+before firmware changes. Both recorded Phase 1 hashes were checked. Phase 2 is
+a separate source/environment; no PlatformIO installation or Phase 1 hardware
+test was repeated. See [the Phase 2 procedure](phase2.md) for dual wiring,
+termination measurements, build/capture commands, pending approvals and results.
+
+Phase 2 assembly checks have now been reported by the user. Build succeeded again
+and USB identity matches Phase 1; firmware/target-port approval is still pending.
+The measurements and build log are recorded in docs/phase2.md and
+tests/phase2-preflight.json. No Phase 2 upload has occurred.
+
+## Phase 2 physical CAN PASS — actual hardware run
+
+User explicitly approved `physical_dual_8mhz` on `/dev/cu.usbmodem21101`, with
+both 8 MHz modules wired, termination checked and USB-only power; no vehicle or
+OBD connection. The port identity was re-enumerated before upload and matched
+VID:PID 2341:0042, serial 34530303238351110202. No Phase 3 work was performed.
+
+The existing wrapper uploaded the approved HEX. avrdude identified ATmega2560
+signature 0x1e9801, wrote **9746 bytes** and read back/verified all **9746 bytes**.
+Upload exit status was 0. Firmware HEX SHA-256:
+`efd7a1602871970774de550f874cd1fea0ee78184dcd19b5b0fff7f1f9cb754b`.
+
+Serial was captured at **115200 baud** after an intentional DTR reset. Both
+controllers passed independent SPI challenges, 500 kbps / MCP_8MHZ configuration,
+and verified NORMAL mode transitions. The complete captured run reports:
+
+| Test | Direction | Transmitted | Received | Verified | Timeouts | Duration ms |
+|---|---|---:|---:|---:|---:|---:|
+| B | CAN1 → CAN2 | 100 | 100 | 100 | 0 | 852 |
+| C | CAN2 → CAN1 | 100 | 100 | 100 | 0 | 853 |
+| D | CAN1 → CAN2 | 1000 | 1000 | 1000 | 0 | 8535 |
+| D | CAN2 → CAN1 | 1000 | 1000 | 1000 | 0 | 8535 |
+| Total | Both directions | **2200** | **2200** | **2200** | **0** | **18996 suite** |
+
+All 2200 requested frames were queued and completed transmission. Missing frames,
+payload mismatches, duplicates, unexpected frames, sequence errors, SPI/library/TX
+API errors and CAN controller error observations were **zero in every stage**.
+For both controllers in every stage: TEC=0, REC=0, sampled peak TEC/REC=0,
+EFLG_OR=0 and ERRINT_OR=0. These are sampled observations, not certification that
+no transient electrical error could occur between polls. Suite time includes
+setup/reporting/stop; the sum of direction-test times is 18775 ms.
+
+Both controllers reported `stopped: CONFIG` before `PHASE 2: PASS`. Capture exited
+0 after checking all four stage summaries and final PASS. No further test traffic
+is generated until a reset; reopening serial can reset the Mega and rerun tests.
+
+Evidence (UTC timestamp in filenames):
+
+- Complete MCU serial output: [tests/phase2-serial-20261023T062731Z.log](../tests/phase2-serial-20261023T062731Z.log)
+- Upload/build and flash verification: [tests/phase2-upload-20261023T062731Z.log](../tests/phase2-upload-20261023T062731Z.log)
+- Capture process output/status: [tests/phase2-capture-20261023T062731Z.log](../tests/phase2-capture-20261023T062731Z.log)
+- Parsed actual counts, counters, durations and evidence hashes: [tests/phase2-result-20261023T062731Z.json](../tests/phase2-result-20261023T062731Z.json)
+- Process run record: [tests/phase2-run-20261023T062731Z.json](../tests/phase2-run-20261023T062731Z.json)
+
+Phase 1 source, reference tag and original verified capture are preserved. This
+passes the isolated, paced, sequential physical-CAN bench test under the reported
+109.6/109.8-ohm network and 54.9–55.0-ohm bus readings. It does not validate
+interrupt delivery, simultaneous traffic, maximum throughput, automotive power,
+EMI, connector pinouts, vehicle diagnostics or service resets. No motorcycle,
+ECU, OBD interface or external 12 V supply was connected by this work. Stop at
+Phase 2; further phases require a separate user request.

@@ -1,0 +1,45 @@
+{
+  "phase": 2,
+  "status": "PASS_ON_REAL_HARDWARE",
+  "phase1_reference_commit": "9b0ac61",
+  "phase1_reference_tag": "phase1-verified-loopback",
+  "phase1_source_and_evidence_preserved": true,
+  "environment": "physical_dual_8mhz",
+  "build": "PASS",
+  "flash_bytes": 9746,
+  "static_ram_bytes": 361,
+  "firmware_hex_sha256": "efd7a1602871970774de550f874cd1fea0ee78184dcd19b5b0fff7f1f9cb754b",
+  "host_mock_scenarios_passed": 21,
+  "host_corrupt_capture_rejections": 8,
+  "hardware_upload": "PASS; 9746 bytes verified",
+  "physical_can_test": "PASS; 2200 transmitted/received/verified, zero reported errors/timeouts",
+  "second_crystal": "8 MHz confirmed by user",
+  "termination_measurements_ohms": {
+    "module1_network": 109.6,
+    "module2_network": 109.8,
+    "completed_bus_min": 54.9,
+    "completed_bus_max": 55.0
+  },
+  "upload_authorization": "Explicitly approved physical_dual_8mhz to /dev/cu.usbmodem21101 before upload",
+  "latest_build_log": "tests/phase2-build-20261023T062058Z.log",
+  "build_verified_at": "2026-10-23T06:22:22.768838+00:00",
+  "proposed_upload_port": "/dev/cu.usbmodem21101",
+  "usb_identity": {
+    "vid_pid": "2341:0042",
+    "serial": "34530303238351110202",
+    "location": "2-1.1"
+  },
+  "hardware_checks_user_reported": {
+    "both_oscillators_mhz": 8,
+    "can_h_continuity": "PASS",
+    "can_l_continuity": "PASS",
+    "no_direct_h_l_short": true,
+    "no_5v_gnd_short": true,
+    "spi_cs_int_power_ground_manually_checked": true,
+    "usb_connected": true,
+    "motorcycle_connected": false,
+    "obd_connected": false
+  },
+  "termination_note": "Reported network resistances in parallel predict 54.84995 ohms, consistent with 54.9-55.0 observed. These are below nominal 120/60 values and are recorded as network measurements, not proof of individual resistor component values. Cause not established; physical bench test subsequently passed under these measured network loads.",
+  "actual_result": "tests/phase2-result-20261023T062731Z.json"
+}
