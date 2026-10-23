@@ -1,0 +1,22 @@
+OpenMoto Phase 3B CAN sniffer
+Variant: bench (CAN2 test traffic only on BENCH/FLOOD/STREAM)
+Config: spi_hz=8000000 baud=921600 queue=64 protocol=1 pace_bps=0
+CAN1: LISTEN_ONLY 500000 bps, 8 MHz, CS D10, INT D2
+ISOLATED BENCH ONLY; no OBD, ECU, motorcycle or external 12V
+Init - SPI, bitrate, filters, LISTEN_ONLY
+MCP2515 #1 SPI: PASS
+MCP2515 #2 SPI: PASS
+# SPI stress hz=8000000 bytes_per_chip=2056 errors1=0 errors2=0
+MCP2515 #1 SPI stress: PASS
+MCP2515 #2 SPI stress: PASS
+MCP2515 #1 initialized 500k/8MHz: PASS
+MCP2515 #2 initialized 500k/8MHz: PASS
+MCP2515 #1 accept-all std+ext filters: PASS
+MCP2515 #1 LISTEN_ONLY: PASS
+MCP2515 #2 CONFIG (silent): PASS
+# serial_tx_free=255 min_free_ram=5281
+READY capture=OFF mode=ASCII; send HELP
+# MODE BINARY
+# FLOOD start dlc=8 ms=1000
+# FLOOD dlc=8 ms=1000 rx=3856 rx_per_s=3856 unique=1 printed=1096 queue_drop=2760 hw_overrun=0 int_missed=0 spi_errors=0 queue_peak=64 merr=16 max_flush_us=1292 max_gap_us=224 max_service_us=148 min_free_ram=5115 CAN2_TEC=128 CAN2_EFLG=0x15 CAN2_CANINTF=0xA0 CAN2_stopped=CONFIG
+FLOOD: DONE

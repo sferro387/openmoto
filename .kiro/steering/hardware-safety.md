@@ -8,7 +8,10 @@ modules on an isolated bench. No motorcycle, ECU, OBD cable, external CAN device
 external 12 V, vehicle diagnostic requests, ECU changes or firmware flashing is
 authorized. Phase 3A sniffer CAN1 must stay LISTEN_ONLY and never transmit.
 Phase 3A firmware upload requires explicit user approval (user instruction for
-Phase 3A), notwithstanding the standing bench approval below.
+Phase 3A), notwithstanding the standing bench approval below. Phase 3B: the user
+permitted bench-only uploads/tests on the existing setup; verify the Mega USB
+port (2341:0042, serial 34530303238351110202) before every upload, keep CAN1
+LISTEN_ONLY, and stop on unexpected hardware behavior, preserving logs.
 
 Disconnect all power before changing wiring or measuring resistance; verify no
 voltage before switching the meter to ohms. Confirm both 8 MHz crystals, independent

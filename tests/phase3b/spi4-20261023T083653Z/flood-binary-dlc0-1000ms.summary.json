@@ -1,0 +1,52 @@
+{
+  "config": {
+    "spi_hz": "4000000",
+    "baud": "921600",
+    "queue": "64",
+    "protocol": "1"
+  },
+  "spi_stress": {
+    "hz": "4000000",
+    "bytes_per_chip": "2056",
+    "errors1": "0",
+    "errors2": "0"
+  },
+  "binary_bytes": 39740,
+  "decode_errors": 0,
+  "record_seq_gaps": 0,
+  "record_seq_duplicates": 0,
+  "ascii_parse_errors": 0,
+  "frames_total": 1159,
+  "firmware": {
+    "dlc": "0",
+    "ms": "1000",
+    "rx": "4813",
+    "rx_per_s": "4813",
+    "unique": "1",
+    "printed": "1159",
+    "queue_drop": "3654",
+    "hw_overrun": "1104",
+    "int_missed": "0",
+    "spi_errors": "0",
+    "queue_peak": "64",
+    "merr": "4",
+    "CAN2_TEC": "128",
+    "CAN2_EFLG": "0x15",
+    "CAN2_CANINTF": "0xA0",
+    "CAN2_stopped": "CONFIG"
+  },
+  "host_frames": 1159,
+  "host_unique_frames": 1,
+  "host_drop_reported": 3654,
+  "host_bytes_per_s": 37546,
+  "problems": [],
+  "verdict": "PASS",
+  "test": "flood",
+  "mode": "binary",
+  "dlc": 0,
+  "ms": 1000,
+  "port": "/dev/cu.usbmodem21101",
+  "baud": 921600,
+  "raw_file": "flood-binary-dlc0-1000ms.raw",
+  "raw_bytes": 40500
+}

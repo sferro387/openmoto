@@ -1,0 +1,25 @@
+OpenMoto Phase 3B CAN sniffer
+Variant: bench (CAN2 test traffic only on BENCH/FLOOD/STREAM)
+Config: spi_hz=4000000 baud=921600 queue=64 protocol=1 pace_bps=20000
+CAN1: LISTEN_ONLY 500000 bps, 8 MHz, CS D10, INT D2
+ISOLATED BENCH ONLY; no OBD, ECU, motorcycle or external 12V
+Init - SPI, bitrate, filters, LISTEN_ONLY
+MCP2515 #1 SPI: PASS
+MCP2515 #2 SPI: PASS
+# SPI stress hz=4000000 bytes_per_chip=2056 errors1=0 errors2=0
+MCP2515 #1 SPI stress: PASS
+MCP2515 #2 SPI stress: PASS
+MCP2515 #1 initialized 500k/8MHz: PASS
+MCP2515 #2 initialized 500k/8MHz: PASS
+MCP2515 #1 accept-all std+ext filters: PASS
+MCP2515 #1 LISTEN_ONLY: PASS
+MCP2515 #2 CONFIG (silent): PASS
+# serial_tx_free=255 min_free_ram=5278
+READY capture=OFF mode=ASCII; send HELP
+# MODE BINARY
+# STREAM start dlc=0 ms=5000
+# STREAM dlc=0 ms=5000 sent=16067 unique=16067 lost=0 lost_tail=0 dup=0 reorder=0 corrupt=0 rx=16067
+# STREAM sent_per_s=3213 unique_per_s=3213 hw_overrun=0 queue_drop=13092 printed=2975 int_missed=0 spi_errors=0 queue_peak=64 merr=13 min_free_ram=5111
+# STREAM max_flush_us=900 max_gap_us=916 max_service_us=232
+# STREAM CAN2 TEC=128 REC=0 EFLG=0x15 CANINTF=0xA0 TXB0CTRL_OR=0x50 attempts_flagged=16067 tx_ok=0 flag_races=0 stopped=CONFIG
+STREAM: PASS loss_free=NO

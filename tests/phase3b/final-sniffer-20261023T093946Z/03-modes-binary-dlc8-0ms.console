@@ -1,0 +1,18 @@
+RESULT ascii_parse_errors=0
+RESULT baud=921600
+RESULT binary_bytes=541
+RESULT decode_errors=0
+RESULT dlc=8
+RESULT frames_total=0
+RESULT mode=binary
+RESULT ms=0
+RESULT port=/dev/cu.usbmodem21101
+RESULT problems=[]
+RESULT raw_bytes=2063
+RESULT raw_file=03-modes-binary-dlc8-0ms.raw
+RESULT record_seq_duplicates=0
+RESULT record_seq_gaps=0
+RESULT spi_stress={'hz': '4000000', 'bytes_per_chip': '2056', 'errors1': '0', 'errors2': '0'}
+RESULT test=modes
+RESULT verdict=PASS
+VERDICT PASS

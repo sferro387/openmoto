@@ -55,3 +55,15 @@ the investigation history in [docs/phase3a.md](../docs/phase3a.md). The
 `073909Z` firmware/validator reported PASS under criteria that were later found
 too weak. It is not a valid PASS. BENCH duplicates and CAN2 ACK errors are
 expected on this two-node no-ACK bench. No vehicle, OBD or later Phase 3 work.
+
+## Phase 3B benchmark evidence
+
+Run directories `phase3b/<label>-<UTC>/` (each with `upload.log` holding the
+flashed HEX SHA-256). Final results come from `phase3b/final-*`; all other
+directories are investigation history, including failures (see
+[docs/phase3b.md](../docs/phase3b.md) §7). Phase 3A baseline reproduction:
+`phase3b-baseline-*-20261023T080831Z.log`. Summary:
+[phase3b-result-20261023T095738Z.json](phase3b-result-20261023T095738Z.json).
+Host tests: `test_phase3b_protocol.py` (host-only, not hardware results).
+Raw captures are committed gzip-compressed; decoded `*.frames.jsonl` files are
+not committed and are regenerated with `capture_phase3b.py --from-raw`.

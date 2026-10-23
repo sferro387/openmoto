@@ -1,0 +1,62 @@
+{
+  "config": {
+    "spi_hz": "4000000",
+    "baud": "460800",
+    "queue": "64",
+    "protocol": "1",
+    "pace_bps": "0"
+  },
+  "spi_stress": {
+    "hz": "4000000",
+    "bytes_per_chip": "2056",
+    "errors1": "0",
+    "errors2": "0"
+  },
+  "binary_bytes": 1736542,
+  "decode_errors": 12,
+  "record_seq_gaps": 4,
+  "record_seq_duplicates": 0,
+  "ascii_parse_errors": 0,
+  "frames_total": 40322,
+  "firmware": {
+    "dlc": "8",
+    "ms": "60000",
+    "rx": "231434",
+    "rx_per_s": "3857",
+    "unique": "1",
+    "printed": "40325",
+    "queue_drop": "191109",
+    "hw_overrun": "0",
+    "int_missed": "0",
+    "spi_errors": "0",
+    "queue_peak": "64",
+    "merr": "16",
+    "max_flush_us": "2024",
+    "max_gap_us": "304",
+    "max_service_us": "224",
+    "min_free_ram": "5109",
+    "CAN2_TEC": "128",
+    "CAN2_EFLG": "0x15",
+    "CAN2_CANINTF": "0xA0",
+    "CAN2_stopped": "CONFIG"
+  },
+  "host_frames": 40322,
+  "host_unique_frames": 1,
+  "host_drop_reported": 191105,
+  "host_bytes_per_s": 28820,
+  "problems": [
+    "12 binary decode errors",
+    "binary record sequence gaps/duplicates (transport loss)",
+    "FLOOD host frames != firmware printed",
+    "FLOOD DROP records != queue_drop"
+  ],
+  "verdict": "FAIL",
+  "test": "flood",
+  "mode": "binary",
+  "dlc": 8,
+  "ms": 60000,
+  "port": "/dev/cu.usbmodem21101",
+  "baud": 460800,
+  "raw_file": "10-flood-binary-dlc8-60000ms.raw",
+  "raw_bytes": 1737313
+}

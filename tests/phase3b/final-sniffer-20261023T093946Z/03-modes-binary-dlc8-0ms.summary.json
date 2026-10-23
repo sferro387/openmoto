@@ -1,0 +1,31 @@
+{
+  "config": {
+    "spi_hz": "4000000",
+    "baud": "921600",
+    "queue": "64",
+    "protocol": "1",
+    "pace_bps": "20000"
+  },
+  "spi_stress": {
+    "hz": "4000000",
+    "bytes_per_chip": "2056",
+    "errors1": "0",
+    "errors2": "0"
+  },
+  "binary_bytes": 541,
+  "decode_errors": 0,
+  "record_seq_gaps": 0,
+  "record_seq_duplicates": 0,
+  "ascii_parse_errors": 0,
+  "frames_total": 0,
+  "problems": [],
+  "verdict": "PASS",
+  "test": "modes",
+  "mode": "binary",
+  "dlc": 8,
+  "ms": 0,
+  "port": "/dev/cu.usbmodem21101",
+  "baud": 921600,
+  "raw_file": "03-modes-binary-dlc8-0ms.raw",
+  "raw_bytes": 2063
+}

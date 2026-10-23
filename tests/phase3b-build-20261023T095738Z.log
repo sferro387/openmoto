@@ -1,0 +1,70 @@
+=== loopback_8mhz
+RAM:   [          ]   2.9% (used 239 bytes from 8192 bytes)
+Flash: [          ]   2.3% (used 5932 bytes from 253952 bytes)
+warnings=0 exit_ok=1
+1f4bb0f521066036af00cf34ec3e4ece92ccaf7de29146d6328cbe2fb0cbbff6  firmware/mega-can/.pio/build/loopback_8mhz/firmware.hex
+=== physical_dual_8mhz
+RAM:   [          ]   4.4% (used 361 bytes from 8192 bytes)
+Flash: [          ]   3.8% (used 9746 bytes from 253952 bytes)
+warnings=0 exit_ok=1
+efd7a1602871970774de550f874cd1fea0ee78184dcd19b5b0fff7f1f9cb754b  firmware/mega-can/.pio/build/physical_dual_8mhz/firmware.hex
+=== sniffer_8mhz
+RAM:   [==        ]  22.3% (used 1829 bytes from 8192 bytes)
+Flash: [          ]   4.6% (used 11774 bytes from 253952 bytes)
+warnings=0 exit_ok=1
+8fbca2d874e66661c540e666201b4dd0cac39f989fa3a774aea242c910d72f66  firmware/mega-can/.pio/build/sniffer_8mhz/firmware.hex
+=== sniffer_bench_8mhz
+RAM:   [==        ]  24.5% (used 2011 bytes from 8192 bytes)
+Flash: [=         ]   7.1% (used 17994 bytes from 253952 bytes)
+warnings=0 exit_ok=1
+185b02aa7a6aeb23676855d2a7fae1e0fe2e9a2e5ae136e87247fffac0536c91  firmware/mega-can/.pio/build/sniffer_bench_8mhz/firmware.hex
+=== p3b_sniffer
+RAM:   [===       ]  30.3% (used 2481 bytes from 8192 bytes)
+Flash: [=         ]   6.5% (used 16560 bytes from 253952 bytes)
+warnings=0 exit_ok=1
+4c684a9e095435b3f7362de89be058c968418f6ced1cbb1c81320f78094d19ad  firmware/mega-can/.pio/build/p3b_sniffer/firmware.hex
+=== p3b_bench_spi1_921k
+RAM:   [===       ]  32.8% (used 2690 bytes from 8192 bytes)
+Flash: [=         ]   9.9% (used 25168 bytes from 253952 bytes)
+warnings=0 exit_ok=1
+00c1aa7b82f15690851c2144f41abbacab18e3a9948761d9e373382e2148a9a5  firmware/mega-can/.pio/build/p3b_bench_spi1_921k/firmware.hex
+=== p3b_bench_spi4_921k
+RAM:   [===       ]  32.8% (used 2690 bytes from 8192 bytes)
+Flash: [=         ]   9.9% (used 25166 bytes from 253952 bytes)
+warnings=0 exit_ok=1
+21f3fa143e09dc964f2826fb99c7e3afa5263394a3ee880264c515ceb25d6cbe  firmware/mega-can/.pio/build/p3b_bench_spi4_921k/firmware.hex
+=== p3b_bench_spi8_921k
+RAM:   [===       ]  32.8% (used 2690 bytes from 8192 bytes)
+Flash: [=         ]   9.9% (used 25166 bytes from 253952 bytes)
+warnings=0 exit_ok=1
+756534ffe03dfe43f40004732b119f9cfbb8881a2a5a3ecc9fda2f93b014b442  firmware/mega-can/.pio/build/p3b_bench_spi8_921k/firmware.hex
+=== p3b_bench_spi4_460k
+RAM:   [===       ]  32.8% (used 2690 bytes from 8192 bytes)
+Flash: [=         ]   9.9% (used 25166 bytes from 253952 bytes)
+warnings=0 exit_ok=1
+40262023e3a8fbf5669cf9e8c3312d93c6d16375b4359200a7214668a0f0ebb0  firmware/mega-can/.pio/build/p3b_bench_spi4_460k/firmware.hex
+=== p3b_bench_spi4_115k
+RAM:   [===       ]  32.8% (used 2690 bytes from 8192 bytes)
+Flash: [=         ]   9.9% (used 25166 bytes from 253952 bytes)
+warnings=0 exit_ok=1
+5a2cdc05a534f0ee9b82899a4e071fd22aca7da770de3e3102e1bf8a2c46c333  firmware/mega-can/.pio/build/p3b_bench_spi4_115k/firmware.hex
+=== p3b_bench_spi1_460k
+RAM:   [===       ]  32.8% (used 2690 bytes from 8192 bytes)
+Flash: [=         ]   9.9% (used 25168 bytes from 253952 bytes)
+warnings=0 exit_ok=1
+d585cf6f3ffc045c719bc8bb865f439ed5dc8c8ed7be3478e42d7b074370779f  firmware/mega-can/.pio/build/p3b_bench_spi1_460k/firmware.hex
+=== p3b_bench_spi4_921k_pace20k
+RAM:   [===       ]  32.9% (used 2694 bytes from 8192 bytes)
+Flash: [=         ]  10.1% (used 25528 bytes from 253952 bytes)
+warnings=0 exit_ok=1
+434bdd4d1026d149851aa14a1ce3314a4fdfabf55430a1f7851dfabe369e7f70  firmware/mega-can/.pio/build/p3b_bench_spi4_921k_pace20k/firmware.hex
+=== p3b_bench_spi4_460k_pace20k
+RAM:   [===       ]  32.9% (used 2694 bytes from 8192 bytes)
+Flash: [=         ]  10.1% (used 25528 bytes from 253952 bytes)
+warnings=0 exit_ok=1
+7ba9eef0f4178a715413f35de4a9f24fc1cc55ff456cee2dc5d82898fc244139  firmware/mega-can/.pio/build/p3b_bench_spi4_460k_pace20k/firmware.hex
+=== p3b_bench_spi4_921k_pace35k
+RAM:   [===       ]  32.9% (used 2694 bytes from 8192 bytes)
+Flash: [=         ]  10.0% (used 25520 bytes from 253952 bytes)
+warnings=0 exit_ok=1
+b984e4161cf2db8ece9306c00cdc0647fd825530a9f215acb2b5c9d004403f37  firmware/mega-can/.pio/build/p3b_bench_spi4_921k_pace35k/firmware.hex

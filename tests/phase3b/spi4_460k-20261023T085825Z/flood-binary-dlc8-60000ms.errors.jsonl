@@ -1,0 +1,19 @@
+{"offset": 434013, "length": 1, "kind": "crc", "detail": "got=0xF3A5 want=0xA825", "raw": "a5"}
+{"offset": 434014, "length": 20, "kind": "garbage", "detail": "", "raw": "5a01018c4e1124ade60023010000084f4df10000"}
+{"offset": 434034, "length": 1, "kind": "bad_version", "detail": "version=177", "raw": "a5"}
+{"offset": 434035, "length": 3, "kind": "garbage", "detail": "", "raw": "5ab1f3"}
+{"offset": 747254, "length": 16, "kind": "garbage", "detail": "", "raw": "a501026287080500000011370100a201"}
+{"offset": 1434460, "length": 1, "kind": "crc", "detail": "got=0x0200 want=0xEEE6", "raw": "a5"}
+{"offset": 1434461, "length": 15, "kind": "garbage", "detail": "", "raw": "5a0102150405000000bc550200167d"}
+{"offset": 1547845, "length": 1, "kind": "crc", "detail": "got=0xE3A5 want=0xFCF3", "raw": "a5"}
+{"offset": 1547846, "length": 20, "kind": "garbage", "detail": "", "raw": "5a0101a818112c842303010000084f4df1000000"}
+{"offset": 1547866, "length": 1, "kind": "bad_version", "detail": "version=26", "raw": "a5"}
+{"offset": 1547867, "length": 3, "kind": "garbage", "detail": "", "raw": "5a1ae3"}
+{"offset": 1632516, "length": 1, "kind": "crc", "detail": "got=0x1FA5 want=0xAEEF", "raw": "a5"}
+{"offset": 1632517, "length": 20, "kind": "garbage", "detail": "", "raw": "5a01010528113c0b4f0323010000084f4d000000"}
+{"offset": 1632537, "length": 1, "kind": "bad_version", "detail": "version=204", "raw": "a5"}
+{"offset": 1632538, "length": 3, "kind": "garbage", "detail": "", "raw": "5acc1f"}
+{"offset": 1703282, "length": 1, "kind": "crc", "detail": "got=0x84A5 want=0xCA5F", "raw": "a5"}
+{"offset": 1703283, "length": 20, "kind": "garbage", "detail": "", "raw": "5a0101dd34112878730323010000084f4df10000"}
+{"offset": 1703303, "length": 1, "kind": "bad_version", "detail": "version=22", "raw": "a5"}
+{"offset": 1703304, "length": 3, "kind": "garbage", "detail": "", "raw": "5a1684"}

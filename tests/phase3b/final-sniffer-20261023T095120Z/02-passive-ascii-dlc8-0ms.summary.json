@@ -1,0 +1,54 @@
+{
+  "config": {
+    "spi_hz": "4000000",
+    "baud": "921600",
+    "queue": "64",
+    "protocol": "1",
+    "pace_bps": "20000"
+  },
+  "spi_stress": {
+    "hz": "4000000",
+    "bytes_per_chip": "2056",
+    "errors1": "0",
+    "errors2": "0"
+  },
+  "binary_bytes": 0,
+  "decode_errors": 0,
+  "record_seq_gaps": 0,
+  "record_seq_duplicates": 0,
+  "ascii_parse_errors": 1,
+  "frames_total": 0,
+  "stats": {
+    "ms": "10593",
+    "rx": "0",
+    "std": "0",
+    "ext": "0",
+    "rtr": "0",
+    "fps": "0.0",
+    "window_ms": "5000",
+    "printed": "0",
+    "queue_drop": "0",
+    "hw_overrun": "0",
+    "merr": "0",
+    "errif": "0",
+    "eflg_or": "0x0",
+    "tec_peak": "0",
+    "rec_peak": "0",
+    "dlc_gt8": "0"
+  },
+  "problems": [
+    "1 malformed ASCII frame lines",
+    "passive mode_faults=None",
+    "passive spi_errors=None",
+    "passive int_missed=None"
+  ],
+  "verdict": "FAIL",
+  "test": "passive",
+  "mode": "ascii",
+  "dlc": 8,
+  "ms": 0,
+  "port": "/dev/cu.usbmodem21101",
+  "baud": 921600,
+  "raw_file": "02-passive-ascii-dlc8-0ms.raw",
+  "raw_bytes": 1187
+}

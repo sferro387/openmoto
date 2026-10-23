@@ -1,0 +1,23 @@
+RESULT ascii_parse_errors=0
+RESULT baud=921600
+RESULT binary_bytes=9356
+RESULT decode_errors=0
+RESULT dlc=8
+RESULT firmware={'frames': '200', 'frames_expected': '200', 'matched': '200', 'missing': '0', 'unexpected': '0', 'timeouts': '0', 'copies_total': '401', 'max_copies': '3', 'TEC': '128', 'peak_TEC': '128', 'EFLG_OR': '0x15', 'CANINTF_OR': '0xA0', 'stopped': 'CONFIG'}
+RESULT firmware_verdict=BENCH: FAIL
+RESULT frames_total=401
+RESULT host_frames=401
+RESULT host_unique=200
+RESULT mode=binary
+RESULT ms=0
+RESULT port=/dev/cu.usbmodem21101
+RESULT problems=['firmware BENCH: FAIL']
+RESULT raw_bytes=10116
+RESULT raw_file=bench-binary-dlc8-0ms.raw
+RESULT record_seq_duplicates=0
+RESULT record_seq_gaps=0
+RESULT spi_stress={'hz': '1000000', 'bytes_per_chip': '2056', 'errors1': '0', 'errors2': '0'}
+RESULT stats={'ms': '1922', 'rx': '401', 'std': '251', 'ext': '150', 'rtr': '100', 'fps': '319.2', 'window_ms': '1256', 'printed': '401', 'queue_drop': '0', 'hw_overrun': '1', 'merr': '8', 'errif': '1', 'eflg_or': '0x40', 'tec_peak': '0', 'rec_peak': '0', 'dlc_gt8': '0', 'queue_peak': '3', 'int_edges': '317', 'int_missed': '0', 'mode_faults': '0', 'spi_errors': '0', 'min_free_ram': '5418', 'records': '413', 'capture': 'ON'}
+RESULT test=bench
+RESULT verdict=FAIL
+VERDICT FAIL

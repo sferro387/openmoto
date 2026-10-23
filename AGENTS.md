@@ -3,7 +3,8 @@
 - Read [HANDOFF.md](HANDOFF.md) for the current verified state, commands and evidence.
   Phase 1 and Phase 2 passed on bench hardware; no vehicle compatibility is claimed.
 - Phase 3A (CAN1 LISTEN_ONLY sniffer, `src/phase3a/`) passed on bench hardware;
-  see docs/phase3a.md. Do not start later Phase 3 work or change working firmware
+  see docs/phase3a.md. Phase 3B (`src/phase3b/`, `p3b_*` environments, binary
+  protocol) is benchmarked; see docs/phase3b.md for results and open limits. Do not start later Phase 3 work or change working firmware
   without a new user request. Preserve unrelated work and real logs/results.
 - Use `./scripts/pio` with an explicit environment from `firmware/mega-can/platformio.ini`.
   Keep the existing pinned tools/dependencies and separate Phase 1/2 source filters.

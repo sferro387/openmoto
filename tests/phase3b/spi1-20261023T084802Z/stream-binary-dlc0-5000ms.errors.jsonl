@@ -1,0 +1,4 @@
+{"offset": 118958, "length": 1, "kind": "crc", "detail": "got=0x39A5 want=0xE299", "raw": "a5"}
+{"offset": 118959, "length": 16, "kind": "garbage", "detail": "", "raw": "5a01019c1909574a0096010000003f39"}
+{"offset": 127669, "length": 1, "kind": "crc", "detail": "got=0x28A5 want=0xF002", "raw": "a5"}
+{"offset": 127670, "length": 16, "kind": "garbage", "detail": "", "raw": "5a0101801b09f84f007a03000000c828"}

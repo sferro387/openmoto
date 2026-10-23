@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/sergio/src/openmoto/host/python/capture_phase3b.py", line 588, in <module>
+    main()
+  File "/Users/sergio/src/openmoto/host/python/capture_phase3b.py", line 584, in main
+    sys.exit(run(a))
+  File "/Users/sergio/src/openmoto/host/python/capture_phase3b.py", line 504, in run
+    with raw_path.open('xb') as raw_file:   # never overwrite evidence
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1242, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 1110, in _opener
+    return self._accessor.open(self, flags, mode)
+FileExistsError: [Errno 17] File exists: 'tests/phase3b/spi1_460k-20261023T090315Z/stream-binary-dlc0-5000ms.raw'

@@ -14,5 +14,6 @@ Phase 1 internal loopback and Phase 2 dual-MCP2515 physical CAN passed on real
 hardware. Phase 2 verified 2200/2200 frames with zero reported errors. No vehicle,
 ISO-TP, UDS, OBD diagnostics or service reset is validated. Do not equate working
 CAN transport with diagnostic compatibility. Phase 3A (CAN1 LISTEN_ONLY sniffer)
-passed on bench hardware (docs/phase3a.md). Do not start further Phase 3 work
+passed on bench hardware (docs/phase3a.md); Phase 3B (high-performance sniffer,
+binary protocol) is benchmarked with documented limits (docs/phase3b.md). Do not start further Phase 3 work
 until the user explicitly requests the next milestone. See HANDOFF.md for evidence/roadmap.

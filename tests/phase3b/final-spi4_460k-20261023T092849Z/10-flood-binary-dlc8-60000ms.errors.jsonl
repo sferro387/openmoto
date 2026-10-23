@@ -1,0 +1,12 @@
+{"offset": 140793, "length": 1, "kind": "crc", "detail": "got=0xA4A5 want=0xF0F0", "raw": "a5"}
+{"offset": 140794, "length": 20, "kind": "garbage", "detail": "", "raw": "5a0101571911c8d0510023010000084df1000000"}
+{"offset": 140814, "length": 1, "kind": "bad_version", "detail": "version=122", "raw": "a5"}
+{"offset": 140815, "length": 3, "kind": "garbage", "detail": "", "raw": "5a7aa4"}
+{"offset": 950199, "length": 1, "kind": "crc", "detail": "got=0xADA5 want=0xB563", "raw": "a5"}
+{"offset": 950200, "length": 24, "kind": "garbage", "detail": "", "raw": "5a010135ac11e852fd0123010000084f4df1000000a554ad"}
+{"offset": 1134307, "length": 1, "kind": "crc", "detail": "got=0x7BA5 want=0xF67C", "raw": "a5"}
+{"offset": 1134308, "length": 20, "kind": "garbage", "detail": "", "raw": "5a01019ccd11888a5e0223010000084df1000000"}
+{"offset": 1134328, "length": 1, "kind": "bad_version", "detail": "version=74", "raw": "a5"}
+{"offset": 1134329, "length": 3, "kind": "garbage", "detail": "", "raw": "5a4a7b"}
+{"offset": 1438330, "length": 1, "kind": "crc", "detail": "got=0x42A5 want=0xAFC3", "raw": "a5"}
+{"offset": 1438331, "length": 15, "kind": "garbage", "detail": "", "raw": "5a0102c70408040000000e6b02ab42"}

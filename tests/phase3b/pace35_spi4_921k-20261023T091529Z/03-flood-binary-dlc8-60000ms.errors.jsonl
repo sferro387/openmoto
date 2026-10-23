@@ -1,0 +1,4 @@
+{"offset": 30809, "length": 1, "kind": "crc", "detail": "got=0xCCA5 want=0x1042", "raw": "a5"}
+{"offset": 30810, "length": 20, "kind": "garbage", "detail": "", "raw": "5a010161051168940023010000084f4df1000000"}
+{"offset": 30830, "length": 1, "kind": "bad_version", "detail": "version=227", "raw": "a5"}
+{"offset": 30831, "length": 3, "kind": "garbage", "detail": "", "raw": "5ae3cc"}

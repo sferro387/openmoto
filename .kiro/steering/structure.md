@@ -11,6 +11,10 @@ inclusion: always
   loop() is empty. Independent controller init, four exchanges, stop/report.
 - `firmware/mega-can/src/phase3a/main.cpp`: Phase 3A CAN1 LISTEN_ONLY sniffer;
   `OPENMOTO_SNIFFER_BENCH=1` adds the CAN2 BENCH traffic generator.
+- `firmware/mega-can/src/phase3b/`: Phase 3B sniffer (`main.cpp`) and binary
+  protocol encoder (`protocol.h`, shared with host tests). Do not edit 3A for 3B.
+- `tests/phase3b/<label>-<UTC>/`: Phase 3B run evidence (`.raw.gz` captures,
+  summaries, logs); `*.frames.jsonl` is regenerated with `--from-raw`.
 - `scripts/pio`: existing project-local CLI wrapper.
 - `host/python/`: serial capture/validation scripts and pinned host requirements.
 - `tests/`: immutable original hardware logs/results plus host-only mock checks.

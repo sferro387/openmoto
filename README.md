@@ -36,3 +36,14 @@ invisible to CAN1 was falsified. Measured limits: ~3,850 8-byte frames/s
 lossless count-only; printing at 115200 keeps ~10% of lines on a busy bus. See
 [Phase 3A results](docs/phase3a.md) and
 [result JSON](tests/phase3a-result-20261023T075313Z.json).
+
+**Phase 3B (high-performance sniffer), benchmarked on real hardware:** 4 MHz SPI,
+versioned binary protocol (CRC-16, record sequence numbers, positioned DROP
+records), RX-priority output and optional pacing. Lossless reception at full
+500 kbps bus load, including 7,840 DLC 0 frames/s (Phase 3A: 513 overrun
+events/s). Host capture of ~770 DLC 8 records/s with zero transport loss when
+paced to 20 kB/s (production env `p3b_sniffer`). Unpaced output was faster
+(~1,600/s) but showed sporadic single-byte loss in the stock 16U2 USB bridge
+(always detected). Failures and unresolved limits are documented in
+[Phase 3B results](docs/phase3b.md) and the
+[result JSON](tests/phase3b-result-20261023T095738Z.json).

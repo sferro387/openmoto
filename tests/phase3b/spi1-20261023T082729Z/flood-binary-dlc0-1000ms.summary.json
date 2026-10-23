@@ -1,0 +1,50 @@
+{
+  "config": {
+    "spi_hz": "1000000",
+    "baud": "921600",
+    "queue": "64",
+    "protocol": "1"
+  },
+  "spi_stress": {
+    "hz": "1000000",
+    "bytes_per_chip": "2056",
+    "errors1": "0",
+    "errors2": "0"
+  },
+  "binary_bytes": 28010,
+  "decode_errors": 2,
+  "record_seq_gaps": 1,
+  "record_seq_duplicates": 0,
+  "ascii_parse_errors": 0,
+  "frames_total": 823,
+  "firmware": {
+    "dlc": "0",
+    "ms": "1002",
+    "rx": "4885",
+    "rx_per_s": "4875",
+    "unique": "1",
+    "printed": "823",
+    "queue_drop": "4062",
+    "hw_overrun": "11",
+    "int_missed": "0",
+    "spi_errors": "0",
+    "queueAN2_stopped": "CONFIG"
+  },
+  "host_frames": 823,
+  "host_unique_frames": 1,
+  "host_drop_reported": 4062,
+  "problems": [
+    "2 binary decode errors",
+    "binary record sequence gaps/duplicates (transport loss)",
+    "CAN2 not stopped in CONFIG"
+  ],
+  "verdict": "FAIL",
+  "test": "flood",
+  "mode": "binary",
+  "dlc": 0,
+  "ms": 1000,
+  "port": "/dev/cu.usbmodem21101",
+  "baud": 921600,
+  "raw_file": "flood-binary-dlc0-1000ms.raw",
+  "raw_bytes": 28770
+}

@@ -1,0 +1,20 @@
+RAM:   [          ]   2.9% (used 239 bytes from 8192 bytes)
+Flash: [          ]   2.3% (used 5932 bytes from 253952 bytes)
+========================= [SUCCESS] Took 0.80 seconds =========================
+loopback_8mhz  SUCCESS   00:00:00.799
+RAM:   [          ]   4.4% (used 361 bytes from 8192 bytes)
+Flash: [          ]   3.8% (used 9746 bytes from 253952 bytes)
+========================= [SUCCESS] Took 0.73 seconds =========================
+physical_dual_8mhz  SUCCESS   00:00:00.729
+RAM:   [==        ]  22.3% (used 1829 bytes from 8192 bytes)
+Flash: [          ]   4.6% (used 11774 bytes from 253952 bytes)
+========================= [SUCCESS] Took 0.72 seconds =========================
+sniffer_8mhz   SUCCESS   00:00:00.715
+RAM:   [==        ]  24.5% (used 2011 bytes from 8192 bytes)
+Flash: [=         ]   7.1% (used 17994 bytes from 253952 bytes)
+========================= [SUCCESS] Took 0.75 seconds =========================
+sniffer_bench_8mhz  SUCCESS   00:00:00.753
+1f4bb0f521066036af00cf34ec3e4ece92ccaf7de29146d6328cbe2fb0cbbff6  firmware/mega-can/.pio/build/loopback_8mhz/firmware.hex
+efd7a1602871970774de550f874cd1fea0ee78184dcd19b5b0fff7f1f9cb754b  firmware/mega-can/.pio/build/physical_dual_8mhz/firmware.hex
+8fbca2d874e66661c540e666201b4dd0cac39f989fa3a774aea242c910d72f66  firmware/mega-can/.pio/build/sniffer_8mhz/firmware.hex
+185b02aa7a6aeb23676855d2a7fae1e0fe2e9a2e5ae136e87247fffac0536c91  firmware/mega-can/.pio/build/sniffer_bench_8mhz/firmware.hex

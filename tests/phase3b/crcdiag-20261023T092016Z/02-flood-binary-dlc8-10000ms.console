@@ -1,0 +1,23 @@
+RESULT ascii_parse_errors=0
+RESULT baud=921600
+RESULT binary_bytes=203274
+RESULT decode_errors=0
+RESULT dlc=8
+RESULT firmware={'dlc': '8', 'ms': '10000', 'rx': '38571', 'rx_per_s': '3857', 'unique': '1', 'printed': '4735', 'queue_drop': '33836', 'hw_overrun': '0', 'int_missed': '0', 'spi_errors': '0', 'queue_peak': '64', 'merr': '15', 'max_flush_us': '1380', 'max_gap_us': '260', 'max_service_us': '284', 'min_free_ram': '5111', 'CAN2_TEC': '128', 'CAN2_EFLG': '0x15', 'CAN2_CANINTF': '0xA0', 'CAN2_stopped': 'CONFIG'}
+RESULT frames_total=4735
+RESULT host_bytes_per_s=19931
+RESULT host_drop_reported=33836
+RESULT host_frames=4735
+RESULT host_unique_frames=1
+RESULT mode=binary
+RESULT ms=10000
+RESULT port=/dev/cu.usbmodem21101
+RESULT problems=[]
+RESULT raw_bytes=204049
+RESULT raw_file=02-flood-binary-dlc8-10000ms.raw
+RESULT record_seq_duplicates=0
+RESULT record_seq_gaps=0
+RESULT spi_stress={'hz': '4000000', 'bytes_per_chip': '2056', 'errors1': '0', 'errors2': '0'}
+RESULT test=flood
+RESULT verdict=PASS
+VERDICT PASS

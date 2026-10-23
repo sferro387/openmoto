@@ -1,0 +1,29 @@
+test_binary_segment_ends_at_mode_ascii (__main__.AsciiParsing) ... ok
+test_unrecognized_ascii_line_is_reported (__main__.AsciiParsing) ... ok
+test_counter_delta_across_wrap (__main__.Counters) ... ok
+test_seq_wrap_gap_duplicate (__main__.Counters) ... ok
+test_text_continuation (__main__.Counters) ... ok
+test_timestamp_unwrap (__main__.Counters) ... ok
+test_bad_version_and_length (__main__.Framing) ... ok
+test_clean_stream_any_chunking (__main__.Framing) ... ok
+test_corrupted_byte_resyncs_and_is_reported (__main__.Framing) ... ok
+test_every_single_byte_corruption_is_detected (__main__.Framing) ... ok
+test_garbage_with_fake_sync_between_records (__main__.Framing) ... ok
+test_invalid_record_content_is_reported (__main__.Framing) ... ok
+test_payload_containing_sync_bytes (__main__.Framing) ... ok
+test_truncated_record_followed_by_more_data (__main__.Framing) ... ok
+test_truncated_tail (__main__.Framing) ... ok
+test_crc_check_value (__main__.GoldenVectors) ... ok
+test_decode_golden_fields (__main__.GoldenVectors) ... ok
+test_firmware_encoder_matches_reference (__main__.GoldenVectors) ... ok
+test_complete_stream (__main__.StreamAccounting) ... ok
+test_dlc0_id_wraps_mod_2048 (__main__.StreamAccounting) ... ok
+test_duplicate_and_corrupt_frames_are_problems (__main__.StreamAccounting) ... ok
+test_gap_explained_by_drop_record (__main__.StreamAccounting) ... ok
+test_gap_without_drop_record_is_unexplained (__main__.StreamAccounting) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.506s
+
+OK
+HOST CAPTURE VALIDATION PASS: clean mock accepted; 8 corrupt/truncated logs rejected

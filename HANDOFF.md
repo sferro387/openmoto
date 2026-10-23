@@ -6,7 +6,8 @@ Open this exact project directory in Kiro: **`/Users/sergio/src/openmoto`**.
 The terminal working directory for commands below is the repository root.
 
 **Phase 1, Phase 2 and Phase 3A (CAN1 LISTEN_ONLY sniffer) passed on real hardware;
-see `docs/phase3a.md` for Phase 3A results, measured limits and history.** This
+see `docs/phase3a.md`. Phase 3B (high-performance sniffer, binary protocol) is
+benchmarked on hardware with documented failures and limits; see `docs/phase3b.md`.** This
 handoff changes documentation and assistant guidance only. Working firmware,
 PlatformIO configuration/dependencies, existing scripts and evidence are preserved.
 No firmware upload, serial-port opening, reset or new physical test is required
@@ -64,11 +65,15 @@ openmoto/
 │   └── src/
 │       ├── main.cpp              Phase 1: Arduino setup()/loop(), internal loopback
 │       ├── phase2/main.cpp       Phase 2: Arduino setup()/loop(), physical CAN suite
-│       └── phase3a/main.cpp      Phase 3A: CAN1 LISTEN_ONLY sniffer (+ bench variant)
+│       ├── phase3a/main.cpp      Phase 3A: CAN1 LISTEN_ONLY sniffer (+ bench variant)
+│       └── phase3b/              Phase 3B: fast sniffer (main.cpp) + binary protocol.h
 ├── host/python/
 │   ├── capture_loopback.py       Phase 1 serial evidence capture
 │   ├── capture_phase2.py         Phase 2 capture and complete-result validation
 │   ├── capture_phase3a.py        Phase 3A passive/bench capture and validation
+│   ├── phase3b_protocol.py       Phase 3B binary protocol decoder/session analysis
+│   ├── capture_phase3b.py        Phase 3B capture, validation, --from-raw re-validation
+│   ├── summarize_phase3b.py      Phase 3B benchmark aggregation
 │   ├── requirements.txt          pyserial==3.5
 │   └── .venv/                    Existing local host Python, ignored by Git
 ├── scripts/pio                  PlatformIO wrapper; use this CLI
@@ -323,8 +328,8 @@ Never open a monitor merely to inspect metadata: it can reset the Mega.
   or BMW/Aprilia service reset is validated. Aprilia target details are unresolved.
 - No physical rerun or upload occurred during handoff. Phase 3A was later
   implemented and passed on hardware (run 20261023T075313Z); see docs/phase3a.md.
-  The board was last left running `sniffer_bench_8mhz` with both controllers idle
-  (CAN1 LISTEN_ONLY, CAN2 CONFIG).
+  Phase 3B followed (docs/phase3b.md). The board was last left running
+  `p3b_sniffer` (CAN1 LISTEN_ONLY, CAN2 CONFIG).
 
 ## Git checkpoint and Kiro guidance
 

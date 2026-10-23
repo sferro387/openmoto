@@ -1,0 +1,19 @@
+RESULT ascii_parse_errors=1
+RESULT baud=921600
+RESULT binary_bytes=0
+RESULT decode_errors=0
+RESULT dlc=8
+RESULT frames_total=0
+RESULT mode=ascii
+RESULT ms=0
+RESULT port=/dev/cu.usbmodem21101
+RESULT problems=['1 malformed ASCII frame lines', 'passive mode_faults=None', 'passive spi_errors=None', 'passive int_missed=None']
+RESULT raw_bytes=1187
+RESULT raw_file=02-passive-ascii-dlc8-0ms.raw
+RESULT record_seq_duplicates=0
+RESULT record_seq_gaps=0
+RESULT spi_stress={'hz': '4000000', 'bytes_per_chip': '2056', 'errors1': '0', 'errors2': '0'}
+RESULT stats={'ms': '10593', 'rx': '0', 'std': '0', 'ext': '0', 'rtr': '0', 'fps': '0.0', 'window_ms': '5000', 'printed': '0', 'queue_drop': '0', 'hw_overrun': '0', 'merr': '0', 'errif': '0', 'eflg_or': '0x0', 'tec_peak': '0', 'rec_peak': '0', 'dlc_gt8': '0'}
+RESULT test=passive
+RESULT verdict=FAIL
+VERDICT FAIL

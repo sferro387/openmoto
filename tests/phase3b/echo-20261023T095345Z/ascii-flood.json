@@ -1,0 +1,14 @@
+{
+ "markers_sent": 79,
+ "marker_occurrences": 9,
+ "firmware_err_replies": 9,
+ "leaked_into_device_stream": 0,
+ "raw_bytes": 203937,
+ "contexts": [
+  "\n# ERR unknown command: ZQZQZQ\r\n# ",
+  "\n# ERR unknown command: ZQZQZQ\r\n# ",
+  "\n# ERR unknown command: ZQZQZQ\r\n# ",
+  "\n# ERR unknown command: ZQZQZQ\r\n# ",
+  "\n# ERR unknown command: ZQZQZQ\r\n# "
+ ]
+}

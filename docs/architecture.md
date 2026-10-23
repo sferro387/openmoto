@@ -47,3 +47,12 @@ line; the receive path only copies frames into a RAM queue; compact text lines a
 printed later without blocking, and drops/overruns are counted. CAN1 has no
 transmit path. CAN2 is silent in CONFIG, except during the bench build's BENCH
 and FLOOD commands. See phase3a.md for results and measured limits.
+
+## Phase 3B (benchmarked on real hardware)
+
+`p3b_*` environments compile only src/phase3b/ (main.cpp + protocol.h). Same
+LISTEN_ONLY reception as 3A, with build-time SPI clock/baud, SPI stress and
+runtime CNF readback, a versioned binary record protocol (CRC-16, sequence
+numbers, DROP records at the exact drop position), strict RX priority (output
+is preemptible by CAN1 at byte granularity) and optional output pacing.
+`p3b_sniffer` contains no CAN2 transmit code. See phase3b.md.

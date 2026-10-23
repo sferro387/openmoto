@@ -1,0 +1,35 @@
+RESULT ascii_parse_errors=0
+RESULT baud=921600
+RESULT binary_bytes=102179
+RESULT decode_errors=0
+RESULT dlc=8
+RESULT firmware={'dlc': '8', 'ms': '8000', 'sent': '17311', 'unique': '17311', 'lost': '0', 'lost_tail': '0', 'dup': '0', 'reorder': '0', 'corrupt': '0', 'rx': '17311', 'sent_per_s': '2163', 'unique_per_s': '2163', 'hw_overrun': '0', 'queue_drop': '14935', 'printed': '2376', 'int_missed': '0', 'spi_errors': '0', 'queue_peak': '64', 'merr': '16', 'min_free_ram': '5111', 'max_flush_us': '928', 'max_gap_us': '828', 'max_service_us': '180', 'TEC': '128', 'REC': '0', 'EFLG': '0x15', 'CANINTF': '0xA0', 'TXB0CTRL_OR': '0x50', 'attempts_flagged': '17311', 'tx_ok': '0', 'flag_races': '0', 'stopped': 'CONFIG'}
+RESULT firmware_verdict=STREAM: PASS loss_free=NO
+RESULT frames_total=2376
+RESULT host_bytes_per_s=19923
+RESULT host_drop_reported=14935
+RESULT host_expect=17308
+RESULT host_frames=2376
+RESULT host_last_seq=17307
+RESULT host_missing=14935
+RESULT host_problems=[]
+RESULT host_seq_gaps=14932
+RESULT host_ts_wraps=1
+RESULT host_unexplained_gaps=-3
+RESULT host_unique=2376
+RESULT mode=binary
+RESULT ms=8000
+RESULT port=/dev/cu.usbmodem21101
+RESULT problems=['only 6 STATS heartbeats in 8000 ms', 'millis() wrap not observed exactly once in STATS']
+RESULT raw_bytes=102954
+RESULT raw_file=17-wraptest-binary-dlc8-8000ms.raw
+RESULT record_seq_duplicates=0
+RESULT record_seq_gaps=0
+RESULT spi_stress={'hz': '4000000', 'bytes_per_chip': '2056', 'errors1': '0', 'errors2': '0'}
+RESULT stats_interval_ms_min_max=[929, 1001]
+RESULT stats_ms_wraps=0
+RESULT stats_records_in_window=6
+RESULT test=wraptest
+RESULT verdict=FAIL
+RESULT wraptest={'millis': '4294964295', 'micros': '4291896676'}
+VERDICT FAIL

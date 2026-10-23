@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/sergio/src/openmoto/host/python/capture_phase3b.py", line 564, in <module>
+    main()
+  File "/Users/sergio/src/openmoto/host/python/capture_phase3b.py", line 560, in main
+    sys.exit(run(ap.parse_args()))
+  File "/Users/sergio/src/openmoto/host/python/capture_phase3b.py", line 518, in run
+    res, evs, sessions, ascii_errors = validate(args, raw, live.timeline)
+  File "/Users/sergio/src/openmoto/host/python/capture_phase3b.py", line 423, in validate
+    offs = [r['offset'] for k, r in win if k in ('frame', 'drop')]
+  File "/Users/sergio/src/openmoto/host/python/capture_phase3b.py", line 423, in <listcomp>
+    offs = [r['offset'] for k, r in win if k in ('frame', 'drop')]
+KeyError: 'offset'
