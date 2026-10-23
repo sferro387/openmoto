@@ -24,4 +24,15 @@ transmitted, received and verified**, zero reported errors/timeouts. Both
 controllers returned to CONFIG after the one-shot suite. See the
 [actual serial capture](tests/phase2-serial-20261023T062731Z.log), [result report](tests/phase2-result-20261023T062731Z.json), and
 [dual-controller guide](docs/phase2.md). Phase 1 remains preserved by the
-`phase1-verified-loopback` tag. No vehicle/OBD tests or Phase 3 work performed.
+`phase1-verified-loopback` tag. No vehicle/OBD tests performed.
+
+**Phase 3A PASS on real hardware (CAN sniffer):** CAN1 in verified LISTEN_ONLY
+(`sniffer_8mhz`; bench variant `sniffer_bench_8mhz` uses CAN2 as test source).
+30 s passive capture and 9 serial command checks passed; 7/7 BENCH runs received
+all 200 deterministic std/ext/RTR frames with zero controller overruns and zero
+serial drops. CAN2 measured at TEC 128 (error-passive, no bus-off) from the
+expected no-ACK errors. The prediction that error-active attempts would be
+invisible to CAN1 was falsified. Measured limits: ~3,850 8-byte frames/s
+lossless count-only; printing at 115200 keeps ~10% of lines on a busy bus. See
+[Phase 3A results](docs/phase3a.md) and
+[result JSON](tests/phase3a-result-20261023T075313Z.json).

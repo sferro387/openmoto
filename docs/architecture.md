@@ -37,4 +37,13 @@ on its original single-module wiring, not the new dual-controller configuration.
 
 The authorized real Phase 2 run passed: 2200 transmitted/received/verified frames,
 zero reported errors/timeouts, and both controllers stopped in CONFIG. Actual
-evidence is linked in bringup.md and phase2.md. Phase 3 has not been started.
+evidence is linked in bringup.md and phase2.md.
+
+## Phase 3A (passed on real hardware)
+
+`sniffer_8mhz` and `sniffer_bench_8mhz` compile only src/phase3a/main.cpp. CAN1
+runs in verified LISTEN_ONLY with accept-all filters and is serviced from its INT
+line; the receive path only copies frames into a RAM queue; compact text lines are
+printed later without blocking, and drops/overruns are counted. CAN1 has no
+transmit path. CAN2 is silent in CONFIG, except during the bench build's BENCH
+and FLOOD commands. See phase3a.md for results and measured limits.

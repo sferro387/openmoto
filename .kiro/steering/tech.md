@@ -25,5 +25,5 @@ Always specify the environment; preserve source filters and Phase 1 reference.
 The actual modules are 8 MHz; both Phase 2 controllers use 500 kbps NORMAL mode,
 1 MHz shared SPI, and 115200 serial. Host scripts use the existing
 `host/python/.venv` and pyserial 3.5. Host C++ mock tests use Apple clang++.
-Build/mock PASS is distinct from a real hardware PASS; hardware access requires
-its own authorized scope. No upload, serial reset or hardware test on IDE startup.
+Build/mock PASS is distinct from a real hardware PASS. Bench upload/test runs have
+standing user approval; still do not upload, reset or test automatically on IDE startup.

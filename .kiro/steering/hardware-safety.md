@@ -6,7 +6,9 @@ inclusion: always
 The allowed baseline is the existing USB-only Mega 2560 plus two MCP2515/TJA1050
 modules on an isolated bench. No motorcycle, ECU, OBD cable, external CAN device,
 external 12 V, vehicle diagnostic requests, ECU changes or firmware flashing is
-authorized. Phase 3 is not part of the migration or an automatic next step.
+authorized. Phase 3A sniffer CAN1 must stay LISTEN_ONLY and never transmit.
+Phase 3A firmware upload requires explicit user approval (user instruction for
+Phase 3A), notwithstanding the standing bench approval below.
 
 Disconnect all power before changing wiring or measuring resistance; verify no
 voltage before switching the meter to ohms. Confirm both 8 MHz crystals, independent
@@ -18,8 +20,10 @@ nominal two 120-ohm terminations would give 60. Do not silently relabel actual
 measurements or add resistors. Stop for shorts, unexplained changes or missing/
 extra termination. Historical bench PASS is not blanket approval for new wiring.
 
-Before a new upload/run, reconcile hardware checks and user authorization, identify
-the USB device, and obtain explicit approval of firmware and port. Do not open
-serial just to enumerate it: DTR can reset and rerun NORMAL-mode transmissions.
+The user has granted standing approval to upload bench firmware and run bench
+tests without asking. Before each upload/run, identify the USB device with
+`./scripts/pio device list` (Mega VID:PID 2341:0042) and pick the firmware
+environment matching the current wiring. Do not open serial just to enumerate it:
+DTR can reset and rerun NORMAL-mode transmissions.
 If initialization/communication fails, preserve diagnostics and stop. Do not
 bypass a physical failure with loopback or claim success from a completed upload.

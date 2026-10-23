@@ -43,3 +43,15 @@ verified. Both SPI/bitrate/NORMAL initialization checks passed. Initial 100 and
 reliability 1000 frames each way all passed: 2200 TX/RX/verified, zero reported
 errors/timeouts, suite 18996 ms. Both controllers stopped in CONFIG. No vehicle,
 OBD or Phase 3 work. Previous pending-status notes above describe earlier preflight.
+
+## Phase 3A actual hardware result: PASS
+
+Final run `20261023T075313Z`: passive 30 s, serial commands, BENCH ×2 (requested)
+and BENCH ×5 (repeatability) PASS; FLOOD measurement recorded. Parsed summary,
+firmware HEX/source hashes and log hashes: [phase3a-result-20261023T075313Z.json](phase3a-result-20261023T075313Z.json).
+Earlier Phase 3A runs (`073111Z`, `073153Z`, `073909Z`, `074449Z`, `074927Z`) are
+preserved failure/iteration evidence from superseded firmware revisions; see
+the investigation history in [docs/phase3a.md](../docs/phase3a.md). The
+`073909Z` firmware/validator reported PASS under criteria that were later found
+too weak. It is not a valid PASS. BENCH duplicates and CAN2 ACK errors are
+expected on this two-node no-ACK bench. No vehicle, OBD or later Phase 3 work.

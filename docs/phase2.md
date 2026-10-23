@@ -118,12 +118,11 @@ Fill this in from actual inspection, not example values:
 After acceptable unpowered checks, reconnect USB for enumeration. Phase 1 firmware
 will still be on the Mega until the Phase 2 upload. The second CS input may float
 while Phase 1 runs: disregard its output and do not use Phase 1 to test this dual
-configuration. Phase 2 explicitly initializes both CS lines. The engineer must
-identify the current device with `./scripts/pio device list` and ask for explicit
-upload confirmation naming that port. An earlier Phase 1 upload approval does
-not authorize Phase 2. Do not open/reset/flash the port before this gate.
+configuration. Phase 2 explicitly initializes both CS lines. Identify the current
+device with `./scripts/pio device list`. The user has granted standing approval
+for bench uploads and runs; no per-run confirmation is required.
 
-## Build, authorized upload, and evidence capture
+## Build, upload, and evidence capture
 
 From the existing repository root:
 
@@ -131,7 +130,7 @@ From the existing repository root:
 ./scripts/pio run -d firmware/mega-can -e physical_dual_8mhz
 ```
 
-After hardware confirmation and explicit upload authorization ONLY:
+Upload and capture (standing user approval):
 
 ```sh
 ./scripts/pio device list

@@ -1,0 +1,60 @@
+OpenMoto Phase 3A CAN sniffer
+Variant: bench (CAN2 test traffic only on BENCH command)
+CAN1: LISTEN_ONLY 500000 bps, 8 MHz, CS D10, INT D2; serial 115200
+ISOLATED BENCH ONLY; no OBD, ECU, motorcycle or external 12V
+Init - SPI, bitrate, filters, LISTEN_ONLY
+MCP2515 #1 SPI: PASS
+MCP2515 #2 SPI: PASS
+MCP2515 #1 initialized 500k/8MHz: PASS
+MCP2515 #2 initialized 500k/8MHz: PASS
+MCP2515 #1 accept-all std+ext filters: PASS
+MCP2515 #1 LISTEN_ONLY: PASS
+MCP2515 #2 CONFIG (silent): PASS
+# serial_tx_free=255
+READY capture=OFF; send HELP
+# FLOOD start: measurement only; CAN2 NORMAL unACKed retransmission, CAN1 LISTEN_ONLY
+# FLOOD frame=123_DLC8 print=ON ms=1000 rx=3848 rx_per_s=3848 printed=446 serial_drop=3402 hw_overrun=24 merr=2 CAN2_TEC=128 CAN2_REC=0 CAN2_EFLG_OR=0x15 CAN2_CANINTF_OR=0xA0 CAN1_mode=LISTEN_ONLY CAN2_stopped=CONFIG
+# FLOOD frame=123_DLC8 print=OFF ms=1000 rx=3857 rx_per_s=3857 printed=0 serial_drop=0 hw_overrun=0 merr=5 CAN2_TEC=128 CAN2_REC=0 CAN2_EFLG_OR=0x15 CAN2_CANINTF_OR=0xA0 CAN1_mode=LISTEN_ONLY CAN2_stopped=CONFIG
+# FLOOD frame=7FF_DLC0 print=OFF ms=1000 rx=7827 rx_per_s=7827 printed=0 serial_drop=0 hw_overrun=513 merr=1 CAN2_TEC=128 CAN2_REC=0 CAN2_EFLG_OR=0x15 CAN2_CANINTF_OR=0xA0 CAN1_mode=LISTEN_ONLY CAN2_stopped=CONFIG
+FLOOD: DONE
+RESULT flood_123_DLC8_print_off_CAN1_mode=LISTEN_ONLY
+RESULT flood_123_DLC8_print_off_CAN2_CANINTF_OR=0xA0
+RESULT flood_123_DLC8_print_off_CAN2_EFLG_OR=0x15
+RESULT flood_123_DLC8_print_off_CAN2_REC=0
+RESULT flood_123_DLC8_print_off_CAN2_TEC=128
+RESULT flood_123_DLC8_print_off_CAN2_stopped=CONFIG
+RESULT flood_123_DLC8_print_off_hw_overrun=0
+RESULT flood_123_DLC8_print_off_merr=5
+RESULT flood_123_DLC8_print_off_ms=1000
+RESULT flood_123_DLC8_print_off_printed=0
+RESULT flood_123_DLC8_print_off_rx=3857
+RESULT flood_123_DLC8_print_off_rx_per_s=3857
+RESULT flood_123_DLC8_print_off_serial_drop=0
+RESULT flood_123_DLC8_print_on_CAN1_mode=LISTEN_ONLY
+RESULT flood_123_DLC8_print_on_CAN2_CANINTF_OR=0xA0
+RESULT flood_123_DLC8_print_on_CAN2_EFLG_OR=0x15
+RESULT flood_123_DLC8_print_on_CAN2_REC=0
+RESULT flood_123_DLC8_print_on_CAN2_TEC=128
+RESULT flood_123_DLC8_print_on_CAN2_stopped=CONFIG
+RESULT flood_123_DLC8_print_on_hw_overrun=24
+RESULT flood_123_DLC8_print_on_merr=2
+RESULT flood_123_DLC8_print_on_ms=1000
+RESULT flood_123_DLC8_print_on_printed=446
+RESULT flood_123_DLC8_print_on_rx=3848
+RESULT flood_123_DLC8_print_on_rx_per_s=3848
+RESULT flood_123_DLC8_print_on_serial_drop=3402
+RESULT flood_7FF_DLC0_print_off_CAN1_mode=LISTEN_ONLY
+RESULT flood_7FF_DLC0_print_off_CAN2_CANINTF_OR=0xA0
+RESULT flood_7FF_DLC0_print_off_CAN2_EFLG_OR=0x15
+RESULT flood_7FF_DLC0_print_off_CAN2_REC=0
+RESULT flood_7FF_DLC0_print_off_CAN2_TEC=128
+RESULT flood_7FF_DLC0_print_off_CAN2_stopped=CONFIG
+RESULT flood_7FF_DLC0_print_off_hw_overrun=513
+RESULT flood_7FF_DLC0_print_off_merr=1
+RESULT flood_7FF_DLC0_print_off_ms=1000
+RESULT flood_7FF_DLC0_print_off_printed=0
+RESULT flood_7FF_DLC0_print_off_rx=7827
+RESULT flood_7FF_DLC0_print_off_rx_per_s=7827
+RESULT flood_7FF_DLC0_print_off_serial_drop=0
+ACCEPTED: flood measurement validated
+capture_exit=0

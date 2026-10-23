@@ -1,0 +1,341 @@
+OpenMoto Phase 3A CAN sniffer
+Variant: bench (CAN2 test traffic only on BENCH command)
+CAN1: LISTEN_ONLY 500000 bps, 8 MHz, CS D10, INT D2; serial 115200
+ISOLATED BENCH ONLY; no OBD, ECU, motorcycle or external 12V
+Init - SPI, bitrate, filters, LISTEN_ONLY
+MCP2515 #1 SPI: PASS
+MCP2515 #2 SPI: PASS
+MCP2515 #1 initialized 500k/8MHz: PASS
+MCP2515 #2 initialized 500k/8MHz: PASS
+MCP2515 #1 accept-all std+ext filters: PASS
+MCP2515 #1 LISTEN_ONLY: PASS
+MCP2515 #2 CONFIG (silent): PASS
+# serial_tx_free=255
+READY capture=OFF; send HELP
+# BENCH start frames=200 CAN2=NORMAL (auto-retransmit ON) CAN1=LISTEN_ONLY; counters reset
+# BENCH frames_expected=200 matched=200 missing=0 unexpected=0 timeouts=0
+# BENCH copies_total=400 duplicate_copies=200 max_copies=2 seen_1x=0 seen_2x=200 seen_3plus=0
+# BENCH timing first_frame_latency_us=636 CAN2_TEC_after_first=16 later_latency_us_min=336 later_latency_us_max=724 recopy_us_min=132 recopy_us_max=828 recopy_frames=200
+# BENCH note: CAN1 is LISTEN_ONLY and never ACKs; CAN2 ACK errors, error-passive state and retransmitted duplicates are expected
+# BENCH CAN2 TEC=128 REC=0 peak_TEC=128 peak_REC=0 EFLG_OR=0x15 CANINTF_OR=0xA0
+# BENCH CAN1 mode=LISTEN_ONLY tec_peak=0 rec_peak=0 merr=8 hw_overrun=0 serial_drop=0 int_missed=0
+# MCP2515 #2 stopped: CONFIG (reset, TEC cleared)
+BENCH: PASS
+S ms=1874 rx=400 std=250 ext=150 rtr=100 fps=303.7 window_ms=1317 printed=400 serial_drop=0 hw_overrun=0 dropped_min=0 merr=8 errif=0 eflg_or=0x0 tec_peak=0 rec_peak=0 dlc_gt8=0 queue_peak=2 int_edges=296 int_missed=0 mode_faults=0 capture=ON
+# BENCH start frames=200 CAN2=NORMAL (auto-retransmit ON) CAN1=LISTEN_ONLY; counters reset
+# BENCH frames_expected=200 matched=200 missing=0 unexpected=0 timeouts=0
+# BENCH copies_total=400 duplicate_copies=200 max_copies=2 seen_1x=0 seen_2x=200 seen_3plus=0
+# BENCH timing first_frame_latency_us=636 CAN2_TEC_after_first=16 later_latency_us_min=336 later_latency_us_max=724 recopy_us_min=132 recopy_us_max=824 recopy_frames=200
+# BENCH note: CAN1 is LISTEN_ONLY and never ACKs; CAN2 ACK errors, error-passive state and retransmitted duplicates are expected
+# BENCH CAN2 TEC=128 REC=0 peak_TEC=128 peak_REC=0 EFLG_OR=0x15 CANINTF_OR=0xA0
+# BENCH CAN1 mode=LISTEN_ONLY tec_peak=0 rec_peak=0 merr=8 hw_overrun=0 serial_drop=0 int_missed=0
+# MCP2515 #2 stopped: CONFIG (reset, TEC cleared)
+BENCH: PASS
+S ms=3240 rx=400 std=250 ext=150 rtr=100 fps=303.2 window_ms=1319 printed=400 serial_drop=0 hw_overrun=0 dropped_min=0 merr=8 errif=0 eflg_or=0x0 tec_peak=0 rec_peak=0 dlc_gt8=0 queue_peak=2 int_edges=296 int_missed=0 mode_faults=0 capture=ON
+# BENCH start frames=200 CAN2=NORMAL (auto-retransmit ON) CAN1=LISTEN_ONLY; counters reset
+# BENCH frames_expected=200 matched=200 missing=0 unexpected=0 timeouts=0
+# BENCH copies_total=402 duplicate_copies=202 max_copies=3 seen_1x=0 seen_2x=198 seen_3plus=2
+# BENCH timing first_frame_latency_us=628 CAN2_TEC_after_first=16 later_latency_us_min=336 later_latency_us_max=768 recopy_us_min=132 recopy_us_max=828 recopy_frames=200
+# BENCH note: CAN1 is LISTEN_ONLY and never ACKs; CAN2 ACK errors, error-passive state and retransmitted duplicates are expected
+# BENCH CAN2 TEC=128 REC=0 peak_TEC=128 peak_REC=0 EFLG_OR=0x15 CANINTF_OR=0xA0
+# BENCH CAN1 mode=LISTEN_ONLY tec_peak=0 rec_peak=0 merr=8 hw_overrun=0 serial_drop=0 int_missed=0
+# MCP2515 #2 stopped: CONFIG (reset, TEC cleared)
+BENCH: PASS
+S ms=4605 rx=402 std=252 ext=150 rtr=100 fps=304.3 window_ms=1321 printed=402 serial_drop=0 hw_overrun=0 dropped_min=0 merr=8 errif=0 eflg_or=0x0 tec_peak=0 rec_peak=0 dlc_gt8=0 queue_peak=3 int_edges=295 int_missed=0 mode_faults=0 capture=ON
+# BENCH start frames=200 CAN2=NORMAL (auto-retransmit ON) CAN1=LISTEN_ONLY; counters reset
+# BENCH frames_expected=200 matched=200 missing=0 unexpected=0 timeouts=0
+# BENCH copies_total=400 duplicate_copies=200 max_copies=2 seen_1x=0 seen_2x=200 seen_3plus=0
+# BENCH timing first_frame_latency_us=628 CAN2_TEC_after_first=16 later_latency_us_min=336 later_latency_us_max=724 recopy_us_min=132 recopy_us_max=832 recopy_frames=200
+# BENCH note: CAN1 is LISTEN_ONLY and never ACKs; CAN2 ACK errors, error-passive state and retransmitted duplicates are expected
+# BENCH CAN2 TEC=128 REC=0 peak_TEC=128 peak_REC=0 EFLG_OR=0x15 CANINTF_OR=0xA0
+# BENCH CAN1 mode=LISTEN_ONLY tec_peak=0 rec_peak=0 merr=8 hw_overrun=0 serial_drop=0 int_missed=0
+# MCP2515 #2 stopped: CONFIG (reset, TEC cleared)
+BENCH: PASS
+S ms=5978 rx=400 std=250 ext=150 rtr=100 fps=301.8 window_ms=1325 printed=400 serial_drop=0 hw_overrun=0 dropped_min=0 merr=8 errif=0 eflg_or=0x0 tec_peak=0 rec_peak=0 dlc_gt8=0 queue_peak=2 int_edges=296 int_missed=0 mode_faults=0 capture=ON
+# BENCH start frames=200 CAN2=NORMAL (auto-retransmit ON) CAN1=LISTEN_ONLY; counters reset
+# BENCH frames_expected=200 matched=200 missing=0 unexpected=0 timeouts=0
+# BENCH copies_total=400 duplicate_copies=200 max_copies=2 seen_1x=0 seen_2x=200 seen_3plus=0
+# BENCH timing first_frame_latency_us=644 CAN2_TEC_after_first=16 later_latency_us_min=336 later_latency_us_max=724 recopy_us_min=132 recopy_us_max=836 recopy_frames=200
+# BENCH note: CAN1 is LISTEN_ONLY and never ACKs; CAN2 ACK errors, error-passive state and retransmitted duplicates are expected
+# BENCH CAN2 TEC=128 REC=0 peak_TEC=128 peak_REC=0 EFLG_OR=0x15 CANINTF_OR=0xA0
+# BENCH CAN1 mode=LISTEN_ONLY tec_peak=0 rec_peak=0 merr=8 hw_overrun=0 serial_drop=0 int_missed=0
+# MCP2515 #2 stopped: CONFIG (reset, TEC cleared)
+BENCH: PASS
+S ms=7350 rx=400 std=250 ext=150 rtr=100 fps=301.8 window_ms=1325 printed=400 serial_drop=0 hw_overrun=0 dropped_min=0 merr=8 errif=0 eflg_or=0x0 tec_peak=0 rec_peak=0 dlc_gt8=0 queue_peak=2 int_edges=296 int_missed=0 mode_faults=0 capture=ON
+RESULT run1_CAN2_TEC_after_first=16
+RESULT run1_can1_hw_overrun=0
+RESULT run1_can1_int_missed=0
+RESULT run1_can1_merr=8
+RESULT run1_can1_mode=LISTEN_ONLY
+RESULT run1_can1_rec_peak=0
+RESULT run1_can1_serial_drop=0
+RESULT run1_can1_tec_peak=0
+RESULT run1_can2_CANINTF_OR=0xA0
+RESULT run1_can2_EFLG_OR=0x15
+RESULT run1_can2_REC=0
+RESULT run1_can2_TEC=128
+RESULT run1_can2_peak_REC=0
+RESULT run1_can2_peak_TEC=128
+RESULT run1_copies_total=400
+RESULT run1_duplicate_copies=200
+RESULT run1_first_frame_latency_us=636
+RESULT run1_frames_expected=200
+RESULT run1_frames_printed=400
+RESULT run1_later_latency_us_max=724
+RESULT run1_later_latency_us_min=336
+RESULT run1_matched=200
+RESULT run1_max_copies=2
+RESULT run1_missing=0
+RESULT run1_recopy_frames=200
+RESULT run1_recopy_us_max=828
+RESULT run1_recopy_us_min=132
+RESULT run1_seen_1x=0
+RESULT run1_seen_2x=200
+RESULT run1_seen_3plus=0
+RESULT run1_stats_capture=ON
+RESULT run1_stats_dlc_gt8=0
+RESULT run1_stats_dropped_min=0
+RESULT run1_stats_eflg_or=0x0
+RESULT run1_stats_errif=0
+RESULT run1_stats_ext=150
+RESULT run1_stats_fps=303.7
+RESULT run1_stats_hw_overrun=0
+RESULT run1_stats_int_edges=296
+RESULT run1_stats_int_missed=0
+RESULT run1_stats_merr=8
+RESULT run1_stats_mode_faults=0
+RESULT run1_stats_ms=1874
+RESULT run1_stats_printed=400
+RESULT run1_stats_queue_peak=2
+RESULT run1_stats_rec_peak=0
+RESULT run1_stats_rtr=100
+RESULT run1_stats_rx=400
+RESULT run1_stats_serial_drop=0
+RESULT run1_stats_std=250
+RESULT run1_stats_tec_peak=0
+RESULT run1_stats_window_ms=1317
+RESULT run1_timeouts=0
+RESULT run1_unexpected=0
+RESULT run1_unique_frames=200
+RESULT run2_CAN2_TEC_after_first=16
+RESULT run2_can1_hw_overrun=0
+RESULT run2_can1_int_missed=0
+RESULT run2_can1_merr=8
+RESULT run2_can1_mode=LISTEN_ONLY
+RESULT run2_can1_rec_peak=0
+RESULT run2_can1_serial_drop=0
+RESULT run2_can1_tec_peak=0
+RESULT run2_can2_CANINTF_OR=0xA0
+RESULT run2_can2_EFLG_OR=0x15
+RESULT run2_can2_REC=0
+RESULT run2_can2_TEC=128
+RESULT run2_can2_peak_REC=0
+RESULT run2_can2_peak_TEC=128
+RESULT run2_copies_total=400
+RESULT run2_duplicate_copies=200
+RESULT run2_first_frame_latency_us=636
+RESULT run2_frames_expected=200
+RESULT run2_frames_printed=400
+RESULT run2_later_latency_us_max=724
+RESULT run2_later_latency_us_min=336
+RESULT run2_matched=200
+RESULT run2_max_copies=2
+RESULT run2_missing=0
+RESULT run2_recopy_frames=200
+RESULT run2_recopy_us_max=824
+RESULT run2_recopy_us_min=132
+RESULT run2_seen_1x=0
+RESULT run2_seen_2x=200
+RESULT run2_seen_3plus=0
+RESULT run2_stats_capture=ON
+RESULT run2_stats_dlc_gt8=0
+RESULT run2_stats_dropped_min=0
+RESULT run2_stats_eflg_or=0x0
+RESULT run2_stats_errif=0
+RESULT run2_stats_ext=150
+RESULT run2_stats_fps=303.2
+RESULT run2_stats_hw_overrun=0
+RESULT run2_stats_int_edges=296
+RESULT run2_stats_int_missed=0
+RESULT run2_stats_merr=8
+RESULT run2_stats_mode_faults=0
+RESULT run2_stats_ms=3240
+RESULT run2_stats_printed=400
+RESULT run2_stats_queue_peak=2
+RESULT run2_stats_rec_peak=0
+RESULT run2_stats_rtr=100
+RESULT run2_stats_rx=400
+RESULT run2_stats_serial_drop=0
+RESULT run2_stats_std=250
+RESULT run2_stats_tec_peak=0
+RESULT run2_stats_window_ms=1319
+RESULT run2_timeouts=0
+RESULT run2_unexpected=0
+RESULT run2_unique_frames=200
+RESULT run3_CAN2_TEC_after_first=16
+RESULT run3_can1_hw_overrun=0
+RESULT run3_can1_int_missed=0
+RESULT run3_can1_merr=8
+RESULT run3_can1_mode=LISTEN_ONLY
+RESULT run3_can1_rec_peak=0
+RESULT run3_can1_serial_drop=0
+RESULT run3_can1_tec_peak=0
+RESULT run3_can2_CANINTF_OR=0xA0
+RESULT run3_can2_EFLG_OR=0x15
+RESULT run3_can2_REC=0
+RESULT run3_can2_TEC=128
+RESULT run3_can2_peak_REC=0
+RESULT run3_can2_peak_TEC=128
+RESULT run3_copies_total=402
+RESULT run3_duplicate_copies=202
+RESULT run3_first_frame_latency_us=628
+RESULT run3_frames_expected=200
+RESULT run3_frames_printed=402
+RESULT run3_later_latency_us_max=768
+RESULT run3_later_latency_us_min=336
+RESULT run3_matched=200
+RESULT run3_max_copies=3
+RESULT run3_missing=0
+RESULT run3_recopy_frames=200
+RESULT run3_recopy_us_max=828
+RESULT run3_recopy_us_min=132
+RESULT run3_seen_1x=0
+RESULT run3_seen_2x=198
+RESULT run3_seen_3plus=2
+RESULT run3_stats_capture=ON
+RESULT run3_stats_dlc_gt8=0
+RESULT run3_stats_dropped_min=0
+RESULT run3_stats_eflg_or=0x0
+RESULT run3_stats_errif=0
+RESULT run3_stats_ext=150
+RESULT run3_stats_fps=304.3
+RESULT run3_stats_hw_overrun=0
+RESULT run3_stats_int_edges=295
+RESULT run3_stats_int_missed=0
+RESULT run3_stats_merr=8
+RESULT run3_stats_mode_faults=0
+RESULT run3_stats_ms=4605
+RESULT run3_stats_printed=402
+RESULT run3_stats_queue_peak=3
+RESULT run3_stats_rec_peak=0
+RESULT run3_stats_rtr=100
+RESULT run3_stats_rx=402
+RESULT run3_stats_serial_drop=0
+RESULT run3_stats_std=252
+RESULT run3_stats_tec_peak=0
+RESULT run3_stats_window_ms=1321
+RESULT run3_timeouts=0
+RESULT run3_unexpected=0
+RESULT run3_unique_frames=200
+RESULT run4_CAN2_TEC_after_first=16
+RESULT run4_can1_hw_overrun=0
+RESULT run4_can1_int_missed=0
+RESULT run4_can1_merr=8
+RESULT run4_can1_mode=LISTEN_ONLY
+RESULT run4_can1_rec_peak=0
+RESULT run4_can1_serial_drop=0
+RESULT run4_can1_tec_peak=0
+RESULT run4_can2_CANINTF_OR=0xA0
+RESULT run4_can2_EFLG_OR=0x15
+RESULT run4_can2_REC=0
+RESULT run4_can2_TEC=128
+RESULT run4_can2_peak_REC=0
+RESULT run4_can2_peak_TEC=128
+RESULT run4_copies_total=400
+RESULT run4_duplicate_copies=200
+RESULT run4_first_frame_latency_us=628
+RESULT run4_frames_expected=200
+RESULT run4_frames_printed=400
+RESULT run4_later_latency_us_max=724
+RESULT run4_later_latency_us_min=336
+RESULT run4_matched=200
+RESULT run4_max_copies=2
+RESULT run4_missing=0
+RESULT run4_recopy_frames=200
+RESULT run4_recopy_us_max=832
+RESULT run4_recopy_us_min=132
+RESULT run4_seen_1x=0
+RESULT run4_seen_2x=200
+RESULT run4_seen_3plus=0
+RESULT run4_stats_capture=ON
+RESULT run4_stats_dlc_gt8=0
+RESULT run4_stats_dropped_min=0
+RESULT run4_stats_eflg_or=0x0
+RESULT run4_stats_errif=0
+RESULT run4_stats_ext=150
+RESULT run4_stats_fps=301.8
+RESULT run4_stats_hw_overrun=0
+RESULT run4_stats_int_edges=296
+RESULT run4_stats_int_missed=0
+RESULT run4_stats_merr=8
+RESULT run4_stats_mode_faults=0
+RESULT run4_stats_ms=5978
+RESULT run4_stats_printed=400
+RESULT run4_stats_queue_peak=2
+RESULT run4_stats_rec_peak=0
+RESULT run4_stats_rtr=100
+RESULT run4_stats_rx=400
+RESULT run4_stats_serial_drop=0
+RESULT run4_stats_std=250
+RESULT run4_stats_tec_peak=0
+RESULT run4_stats_window_ms=1325
+RESULT run4_timeouts=0
+RESULT run4_unexpected=0
+RESULT run4_unique_frames=200
+RESULT run5_CAN2_TEC_after_first=16
+RESULT run5_can1_hw_overrun=0
+RESULT run5_can1_int_missed=0
+RESULT run5_can1_merr=8
+RESULT run5_can1_mode=LISTEN_ONLY
+RESULT run5_can1_rec_peak=0
+RESULT run5_can1_serial_drop=0
+RESULT run5_can1_tec_peak=0
+RESULT run5_can2_CANINTF_OR=0xA0
+RESULT run5_can2_EFLG_OR=0x15
+RESULT run5_can2_REC=0
+RESULT run5_can2_TEC=128
+RESULT run5_can2_peak_REC=0
+RESULT run5_can2_peak_TEC=128
+RESULT run5_copies_total=400
+RESULT run5_duplicate_copies=200
+RESULT run5_first_frame_latency_us=644
+RESULT run5_frames_expected=200
+RESULT run5_frames_printed=400
+RESULT run5_later_latency_us_max=724
+RESULT run5_later_latency_us_min=336
+RESULT run5_matched=200
+RESULT run5_max_copies=2
+RESULT run5_missing=0
+RESULT run5_recopy_frames=200
+RESULT run5_recopy_us_max=836
+RESULT run5_recopy_us_min=132
+RESULT run5_seen_1x=0
+RESULT run5_seen_2x=200
+RESULT run5_seen_3plus=0
+RESULT run5_stats_capture=ON
+RESULT run5_stats_dlc_gt8=0
+RESULT run5_stats_dropped_min=0
+RESULT run5_stats_eflg_or=0x0
+RESULT run5_stats_errif=0
+RESULT run5_stats_ext=150
+RESULT run5_stats_fps=301.8
+RESULT run5_stats_hw_overrun=0
+RESULT run5_stats_int_edges=296
+RESULT run5_stats_int_missed=0
+RESULT run5_stats_merr=8
+RESULT run5_stats_mode_faults=0
+RESULT run5_stats_ms=7350
+RESULT run5_stats_printed=400
+RESULT run5_stats_queue_peak=2
+RESULT run5_stats_rec_peak=0
+RESULT run5_stats_rtr=100
+RESULT run5_stats_rx=400
+RESULT run5_stats_serial_drop=0
+RESULT run5_stats_std=250
+RESULT run5_stats_tec_peak=0
+RESULT run5_stats_window_ms=1325
+RESULT run5_timeouts=0
+RESULT run5_unexpected=0
+RESULT run5_unique_frames=200
+ACCEPTED: bench PASS validated
+capture_exit=0

@@ -1,0 +1,22 @@
+OpenMoto Phase 3A CAN sniffer
+Variant: sniffer (CAN2 held silent in CONFIG)
+CAN1: LISTEN_ONLY 500000 bps, 8 MHz, CS D10, INT D2; serial 115200
+ISOLATED BENCH ONLY; no OBD, ECU, motorcycle or external 12V
+Init - SPI, bitrate, filters, LISTEN_ONLY
+MCP2515 #1 SPI: PASS
+MCP2515 #2 SPI: PASS
+MCP2515 #1 initialized 500k/8MHz: PASS
+MCP2515 #1 accept-all std+ext filters: PASS
+MCP2515 #1 LISTEN_ONLY: PASS
+MCP2515 #2 CONFIG (silent): PASS
+# serial_tx_free=255
+READY capture=OFF; send HELP
+# CAPTURE ON
+S ms=5549 rx=0 std=0 ext=0 rtr=0 fps=0.0 window_ms=5000 printed=0 serial_drop=0 hw_overrun=0 dropped_min=0 merr=0 errif=0 eflg_or=0x0 tec_peak=0 rec_peak=0 dlc_gt8=0 queue_peak=0 int_edges=0 int_missed=0 mode_faults=0 capture=ON
+S ms=10549 rx=0 std=0 ext=0 rtr=0 fps=0.0 window_ms=5000 printed=0 serial_drop=0 hw_overrun=0 dropped_min=0 merr=0 errif=0 eflg_or=0x0 tec_peak=0 rec_peak=0 dlc_gt8=0 queue_peak=0 int_edges=0 int_missed=0 mode_faults=0 capture=ON
+S ms=15549 rx=0 std=0 ext=0 rtr=0 fps=0.0 window_ms=5000 printed=0 serial_drop=0 hw_overrun=0 dropped_min=0 merr=0 errif=0 eflg_or=0x0 tec_peak=0 rec_peak=0 dlc_gt8=0 queue_peak=0 int_edges=0 int_missed=0 mode_faults=0 capture=ON
+S ms=20549 rx=0 std=0 ext=0 rtr=0 fps=0.0 window_ms=5000 printed=0 serial_drop=0 hw_overrun=0 dropped_min=0 merr=0 errif=0 eflg_or=0x0 tec_peak=0 rec_peak=0 dlc_gt8=0 queue_peak=0 int_edges=0 int_missed=0 mode_faults=0 capture=ON
+S ms=25549 rx=0 std=0 ext=0 rtr=0 fps=0.0 window_ms=5000 printed=0 serial_drop=0 hw_overrun=0 dropped_min=0 merr=0 errif=0 eflg_or=0x0 tec_peak=0 rec_peak=0 dlc_gt8=0 queue_peak=0 int_edges=0 int_missed=0 mode_faults=0 capture=ON
+S ms=30550 rx=0 std=0 ext=0 rtr=0 fps=0.0 window_ms=5001 printed=0 serial_drop=0 hw_overrun=0 dropped_min=0 merr=0 errif=0 eflg_or=0x0 tec_peak=0 rec_peak=0 dlc_gt8=0 queue_peak=0 int_edges=0 int_missed=0 mode_faults=0 capture=ON
+S ms=30553 rx=0 std=0 ext=0 rtr=0 fps=0.0 window_ms=3 printed=0 serial_drop=0 hw_overrun=0 dropped_min=0 merr=0 errif=0 eflg_or=0x0 tec_peak=0 rec_peak=0 dlc_gt8=0 queue_peak=0 int_edges=0 int_missed=0 mode_faults=0 capture=ON
+# CAPTURE OFF

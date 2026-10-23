@@ -5,7 +5,8 @@
 Open this exact project directory in Kiro: **`/Users/sergio/src/openmoto`**.
 The terminal working directory for commands below is the repository root.
 
-**Phase 1 and Phase 2 passed on real hardware. Phase 3 has not started.** This
+**Phase 1, Phase 2 and Phase 3A (CAN1 LISTEN_ONLY sniffer) passed on real hardware;
+see `docs/phase3a.md` for Phase 3A results, measured limits and history.** This
 handoff changes documentation and assistant guidance only. Working firmware,
 PlatformIO configuration/dependencies, existing scripts and evidence are preserved.
 No firmware upload, serial-port opening, reset or new physical test is required
@@ -62,10 +63,12 @@ openmoto/
 │   ├── platformio.ini            Existing pinned environments; explicit source filters
 │   └── src/
 │       ├── main.cpp              Phase 1: Arduino setup()/loop(), internal loopback
-│       └── phase2/main.cpp       Phase 2: Arduino setup()/loop(), physical CAN suite
+│       ├── phase2/main.cpp       Phase 2: Arduino setup()/loop(), physical CAN suite
+│       └── phase3a/main.cpp      Phase 3A: CAN1 LISTEN_ONLY sniffer (+ bench variant)
 ├── host/python/
 │   ├── capture_loopback.py       Phase 1 serial evidence capture
 │   ├── capture_phase2.py         Phase 2 capture and complete-result validation
+│   ├── capture_phase3a.py        Phase 3A passive/bench capture and validation
 │   ├── requirements.txt          pyserial==3.5
 │   └── .venv/                    Existing local host Python, ignored by Git
 ├── scripts/pio                  PlatformIO wrapper; use this CLI
@@ -278,15 +281,15 @@ handoff for current status.
 
 The previous approved port was `/dev/cu.usbmodem21101`, VID:PID `2341:0042`,
 serial `34530303238351110202`. Enumerate again with `./scripts/pio device list`;
-port names can change. Do not treat a historical device path as authorization.
+port names can change, so always use the currently enumerated Mega port.
 
-Only for a separately requested/authorized bench rerun, after hardware checks and
-explicit firmware/target-port approval, use the existing tools:
+The user has granted standing approval for bench uploads and test runs without
+asking first. Use the existing tools:
 
 ```sh
-# Replace CONFIRMED_USB_PORT and choose a NEW log filename; not part of migration.
-./scripts/pio run -d firmware/mega-can -e physical_dual_8mhz -t upload --upload-port CONFIRMED_USB_PORT
-host/python/.venv/bin/python host/python/capture_phase2.py --port CONFIRMED_USB_PORT --output tests/NEW_PHASE2_RUN.log
+# Replace USB_PORT with the enumerated Mega port and choose a NEW log filename.
+./scripts/pio run -d firmware/mega-can -e physical_dual_8mhz -t upload --upload-port USB_PORT
+host/python/.venv/bin/python host/python/capture_phase2.py --port USB_PORT --output tests/NEW_PHASE2_RUN.log
 ```
 
 Capture uses 115200 baud, opens the port/toggles DTR (reset/retransmit), saves an
@@ -318,7 +321,10 @@ Never open a monitor merely to inspect metadata: it can reset the Mega.
   BLE/mobile implementation or commercial qualification is present.
 - No vehicle connector mapping, diagnostic addressing, ISO-TP, UDS, OBD operation
   or BMW/Aprilia service reset is validated. Aprilia target details are unresolved.
-- No physical rerun or upload occurred during handoff. **Stop at Phase 2.**
+- No physical rerun or upload occurred during handoff. Phase 3A was later
+  implemented and passed on hardware (run 20261023T075313Z); see docs/phase3a.md.
+  The board was last left running `sniffer_bench_8mhz` with both controllers idle
+  (CAN1 LISTEN_ONLY, CAN2 CONFIG).
 
 ## Git checkpoint and Kiro guidance
 
@@ -349,11 +355,12 @@ The project was transferred with its existing history and Phase 1 tag to
 The original `/Users/sergio/Downloads/openmoto` remains unchanged.
 
 On this Mac, `.tools/pio-venv`, `.tools/platformio` and `host/python/.venv` are
-local symbolic links to the existing environments/cache in the original Downloads
-checkout. This keeps `./scripts/pio` and host capture commands usable without
-reinstalling tools or copying virtual environments. These links are ignored
-(the host venv link is excluded locally in `.git/info/exclude`) and are not
-published. **Do not delete the Downloads tooling while these links are in use.**
-A fresh clone on another machine requires its own deliberate tooling setup; these
-machine-local links are not a portable environment bundle. No firmware or hardware
-evidence was changed by transferring the checkout.
+self-contained local directories in this checkout (no longer symbolic links to
+the Downloads checkout). The PlatformIO package cache was copied unchanged; both
+venvs were recreated with Apple Python 3.9.6 from `requirements-tooling.lock.txt`
+and `host/python/requirements.txt`, and `pip freeze` matches both exactly. With
+the Downloads checkout temporarily hidden, clean builds of `loopback_8mhz` and
+`physical_dual_8mhz` reproduced the original HEX SHA-256 values and the host
+checks passed. These directories are ignored and not published. A fresh clone on
+another machine still requires its own deliberate tooling setup. No firmware or
+hardware evidence was changed by transferring the checkout.
