@@ -2,7 +2,7 @@
 
 ## Current state and scope
 
-Open this exact project directory in Kiro: **`/Users/sergio/Downloads/openmoto`**.
+Open this exact project directory in Kiro: **`/Users/sergio/src/openmoto`**.
 The terminal working directory for commands below is the repository root.
 
 **Phase 1 and Phase 2 passed on real hardware. Phase 3 has not started.** This
@@ -340,3 +340,20 @@ After the handoff commit, use `git log -1 --format=fuller`, `git show --stat HEA
 and `git status --short` for the checkpoint identity, exact file inventory and
 working-tree state. The commit cannot embed its own hash in its contents; its
 full hash is reported separately to the user.
+
+## GitHub checkout location
+
+The project was transferred with its existing history and Phase 1 tag to
+`/Users/sergio/src/openmoto`, cloned from
+`https://github.com/sferro387/openmoto.git`. This is now the working checkout.
+The original `/Users/sergio/Downloads/openmoto` remains unchanged.
+
+On this Mac, `.tools/pio-venv`, `.tools/platformio` and `host/python/.venv` are
+local symbolic links to the existing environments/cache in the original Downloads
+checkout. This keeps `./scripts/pio` and host capture commands usable without
+reinstalling tools or copying virtual environments. These links are ignored
+(the host venv link is excluded locally in `.git/info/exclude`) and are not
+published. **Do not delete the Downloads tooling while these links are in use.**
+A fresh clone on another machine requires its own deliberate tooling setup; these
+machine-local links are not a portable environment bundle. No firmware or hardware
+evidence was changed by transferring the checkout.
