@@ -1,0 +1,13 @@
+---- boot ----
+MCP2515 #1 SPI: PASS
+MCP2515 #2 SPI: PASS
+OpenMoto Phase 4 read-only diagnostic client
+BUILD tx=ENABLED (diag_readonly)
+NOT FOR VEHICLE USE until the prerequisites in docs/diag-active.md are met
+READY send STATUS
+OK addr tx=6F1 rx=660 txext=60 rxext=F1
+OK pad=00
+---- passive STATUS x3 (LISTEN_ONLY, nothing armed) ----
+[0] STATUS state=IDLE addr=SET pad=SET txn=0 fails=0 estop=0 lockout=0 tx_build=1
+[1] STATUS state=IDLE addr=SET pad=SET txn=0 fails=0 estop=0 lockout=0 tx_build=1
+[2] STATUS state=IDLE addr=SET pad=SET txn=0 fails=0 estop=0 lockout=0 tx_build=1

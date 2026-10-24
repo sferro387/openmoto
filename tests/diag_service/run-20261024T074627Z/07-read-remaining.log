@@ -1,0 +1,33 @@
+---- boot ----
+MCP2515 #1 SPI: PASS
+MCP2515 #2 SPI: PASS
+OpenMoto Phase 4 read-only diagnostic client
+BUILD tx=ENABLED (diag_readonly)
+NOT FOR VEHICLE USE until the prerequisites in docs/diag-active.md are met
+READY send STATUS
+OK addr tx=6F1 rx=660 txext=60 rxext=F1
+OK pad=00
+==== READ 22E12D ====
+ARMED code=BE08 req=22E12D desc=ReadDataByIdentifier tx_id=6F1 dlc=8 data=600322E12D000000 max_tx_frames=2 expires_ms=30000 tx_build=1
+-- CONFIRM BE08 --
+TRACE tx id=6F1 dlc=8 data=600322E12D000000
+TRACE rx id=660 dlc=7 data=F10562E12D143C
+RESULT status=OK req=22E12D resp=62E12D143C frames_tx=1 frames_rx=1 ignored=0 pending=0 ms=8 silent=1
+==== READ 22E119 ====
+ARMED code=0089 req=22E119 desc=ReadDataByIdentifier tx_id=6F1 dlc=8 data=600322E119000000 max_tx_frames=2 expires_ms=30000 tx_build=1
+-- CONFIRM 0089 --
+TRACE tx id=6F1 dlc=8 data=600322E119000000
+TRACE rx id=660 dlc=8 data=F1100762E1190000
+TRACE tx id=6F1 dlc=8 data=6030000200000000
+TRACE rx id=660 dlc=4 data=F121192C
+RESULT status=OK req=22E119 resp=62E1190000192C frames_tx=2 frames_rx=2 ignored=0 pending=0 ms=12 silent=1
+==== READ 22E12B ====
+ARMED code=C2E3 req=22E12B desc=ReadDataByIdentifier tx_id=6F1 dlc=8 data=600322E12B000000 max_tx_frames=2 expires_ms=30000 tx_build=1
+-- CONFIRM C2E3 --
+TRACE tx id=6F1 dlc=8 data=600322E12B000000
+TRACE rx id=660 dlc=8 data=F1100A62E12B0033
+TRACE tx id=6F1 dlc=8 data=6030000200000000
+TRACE rx id=660 dlc=7 data=F1210A180A07EA
+RESULT status=OK req=22E12B resp=62E12B00330A180A07EA frames_tx=2 frames_rx=2 ignored=0 pending=0 ms=11 silent=1
+---- final STATUS ----
+STATUS state=IDLE addr=SET pad=SET txn=3 fails=0 estop=0 lockout=0 tx_build=1
