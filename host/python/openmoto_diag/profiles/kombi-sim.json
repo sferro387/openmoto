@@ -1,0 +1,34 @@
+{
+  "_comment": [
+    "OFFLINE SIMULATOR profile for the KOMBI probe. Same addressing as the",
+    "APK-derived R18 KOMBI profile, but pointed at the in-process mock ECU in",
+    "tests/diag_host/diag_sim.cpp. verified=true here means 'verified against the",
+    "simulator', NOT against a real bike. --port transmission still additionally",
+    "requires --i-have-read-prereqs and interactive confirmation, so this cannot",
+    "silently become a real transmission."
+  ],
+  "schema": "openmoto-diag-addressing/1",
+  "vehicle": "OFFLINE SIMULATOR (KOMBI mock, not a real vehicle)",
+  "verified": true,
+  "bitrate_kbps": 500,
+  "addressing_mode": "extended",
+  "padding_byte": 0,
+  "tester_present_required": false,
+  "targets": {
+    "kombi": {
+      "description": "mock KOMBI (tests/diag_host) answering 22 F1 50",
+      "tx_id": 1777,
+      "rx_id": 1632,
+      "tx_ext": 96,
+      "rx_ext": 241,
+      "evidence": "Simulator addressing matching MockEcu configure(0x6F1,0x660,0x60,0xF1) in tests/diag_host/diag_sim.cpp"
+    }
+  },
+  "evidence": {
+    "connector_pinout": "n/a (simulator)",
+    "bitrate": "n/a (simulator)",
+    "addressing": "n/a (simulator)",
+    "tx_rx_ids": "n/a (simulator)",
+    "bus_behavior_vs_0x130": "n/a (simulator)"
+  }
+}

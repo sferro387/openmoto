@@ -1,0 +1,2 @@
+diag_ack HEX sha256=5244f05874093b840a5e00baaaa0d34fd546e0c686af25f09db5de0774bf2453
+DIAG ACK FIRMWARE AUDIT PASS: no transmit/RTS/load-TX path linked; NORMAL mode present (so it acknowledges); RTS-pin and TXREQ guards present (software only; not an electrical or vehicle result).

@@ -1,0 +1,15 @@
+---- boot ----
+MCP2515 #1 CONFIG: PASS
+MCP2515 #2 CONFIG: PASS
+MCP2515 #1 bitrate 500k/8MHz: PASS
+OpenMoto Phase 9 SERVICE-WRITE client
+BUILD tx=ENABLED (service_write)
+WRITES cluster NVM. Idle=LISTEN_ONLY. ARM+CONFIRM per write; read-back verified.
+NOT FOR VEHICLE USE until docs/diag-kombi-service-reset.md prereqs are met
+READY send STATUS
+OK addr tx=6F1 rx=660 txext=60 rxext=F1
+OK pad=00
+E12C[0]=62E12C180A07EB
+E12C[1]=62E12C180A07EB
+E12D=62E12D2710
+E119=62E1190000192C (odometer, must be unchanged 0000192C)

@@ -18,8 +18,10 @@ See docs/phase3b.md.
 """
 import argparse
 import json
+import os
 from pathlib import Path
 import re
+import select
 import sys
 import time
 
@@ -28,6 +30,46 @@ import phase3b_protocol as p  # noqa: E402
 import capture_phase3a as p3a  # noqa: E402  (frame line parser, BENCH sequence)
 
 MODE_BIN_LINE = b'# MODE BINARY\r\n'
+# --vehicle: commands that never touch CAN in any Phase 3B firmware. Everything
+# else (BENCH, FLOOD, STREAM, WRAPTEST, RESET, unknown text) is refused by the host.
+VEHICLE_ALLOWED_COMMANDS = frozenset({'START', 'STOP', 'STATS', 'BINARY', 'ASCII', 'COUNT', 'HELP'})
+VEHICLE_REQUIRED_LINES = (
+    'OpenMoto Phase 3B CAN sniffer',
+    'Variant: sniffer (CAN2 held silent in CONFIG)',
+    'MCP2515 #1 SPI: PASS', 'MCP2515 #2 SPI: PASS',
+    'MCP2515 #1 SPI stress: PASS', 'MCP2515 #2 SPI stress: PASS',
+    'MCP2515 #1 initialized 500k/8MHz: PASS',
+    'MCP2515 #1 accept-all std+ext filters: PASS',
+    'MCP2515 #1 LISTEN_ONLY: PASS',
+    'MCP2515 #2 CONFIG (silent): PASS',
+)
+
+
+class VehicleGuardError(RuntimeError):
+    pass
+
+
+def vehicle_check_command(cmd):
+    if cmd.strip().upper() not in VEHICLE_ALLOWED_COMMANDS:
+        raise VehicleGuardError(f'--vehicle: command {cmd!r} refused (allowed: '
+                                f'{sorted(VEHICLE_ALLOWED_COMMANDS)})')
+
+
+def vehicle_preflight(lines, expect_spi, baud):
+    """Problems that forbid starting a vehicle capture (empty list = proceed)."""
+    problems = [f'missing {r!r}' for r in VEHICLE_REQUIRED_LINES if r not in lines]
+    if any(l.startswith('Variant: bench') for l in lines):
+        problems.append('bench firmware (contains CAN2 transmit code) - flash p3b_sniffer')
+    cfg = kv(next((l for l in lines if l.startswith('Config: ')), ''))
+    if cfg.get('spi_hz') != str(expect_spi) or cfg.get('baud') != str(baud) or cfg.get('protocol') != '1':
+        problems.append(f'unexpected Config line {cfg}')
+    if not any(l.startswith('CAN1: LISTEN_ONLY 500000 bps') for l in lines):
+        problems.append('CAN1 LISTEN_ONLY banner missing')
+    if any(l.startswith('INIT: FAIL') or 'ALERT' in l for l in lines):
+        problems.append('firmware reported INIT FAIL / ALERT')
+    if not any(l.startswith('READY ') for l in lines):
+        problems.append('firmware not READY')
+    return problems
 BIN_EXIT_TEXTS = ('# MODE ASCII', '# MODE COUNT')
 VERDICT = re.compile(r'^(BENCH|STREAM|FLOOD): ')
 KNOWN_ASCII = re.compile(
@@ -275,7 +317,11 @@ class Live:
         while time.monotonic() < end:
             self.pump()
 
+    vehicle = False
+
     def send(self, cmd):
+        if self.vehicle:
+            vehicle_check_command(cmd)  # raises before anything is written
         self.port.write(cmd.encode('ascii') + b'\n')
         self.port.flush()
 
@@ -436,6 +482,27 @@ def validate(args, raw, timeline):
         for k in ('spi_errors', 'int_missed'):
             if int(fw.get(k, -1)) != 0:
                 problems.append(f'FLOOD {k}={fw.get(k)}')
+    elif t == 'passive' and getattr(args, 'vehicle', False):
+        # Vehicle capture: the bus is live, so frames, controller overruns and
+        # queue drops are measurements (reported). Failures are safety/integrity
+        # violations: CAN1 mode faults, SPI readback errors, missed interrupts,
+        # wrong firmware variant, or transport/decode errors (checked above).
+        problems += vehicle_preflight(lines, args.expect_spi, args.baud)
+        s_lines = [l for l in lines if l.startswith('S ')]
+        res['stats'] = st = kv(s_lines[-1]) if s_lines else {}
+        for k in ('mode_faults', 'spi_errors', 'int_missed'):
+            if st.get(k) != '0':
+                problems.append(f'vehicle {k}={st.get(k)}')
+        for h in hellos:
+            if h['variant'] != 0:
+                problems.append('HELLO reports bench variant')
+        rx, merr = int(st.get('rx', 0) or 0), int(st.get('merr', 0) or 0)
+        res['loss'] = {'hw_overrun': st.get('hw_overrun'), 'queue_drop': st.get('queue_drop'),
+                       'loss_free': st.get('hw_overrun') == '0' and st.get('queue_drop') == '0'}
+        res['interpretation'] = (
+            'frames received' if rx else
+            'no frames and message errors: bit rate/sample point mismatch or wrong pins likely' if merr else
+            'no frames and no errors: bus idle/gatewayed, wrong pins, or ignition off')
     elif t == 'passive':
         s_lines = [l for l in lines if l.startswith('S ')]
         res['stats'] = kv(s_lines[-1]) if s_lines else {}
@@ -503,21 +570,54 @@ def revalidate(args):
     return 0 if res['verdict'] == 'PASS' else 1
 
 
+def port_holders(port):
+    """PIDs of other processes that have the serial device open (lsof)."""
+    import subprocess
+    out = subprocess.run(['lsof', '-t', port], capture_output=True, text=True).stdout
+    return sorted({int(x) for x in out.split()} - {os.getpid()})
+
+
 def run(args):
     import serial
     prefix = Path(args.output_prefix)
     raw_path = prefix.with_suffix('.raw')
+    if args.vehicle:
+        # A second reader (e.g. 'pio device monitor') splits the byte stream and
+        # can send keystrokes that bypass the command allowlist.
+        holders = port_holders(args.port)
+        if holders:
+            raise SystemExit(f'--vehicle: {args.port} is already open by PID(s) {holders}; '
+                             'close the other program (nothing sent)')
     with raw_path.open('xb') as raw_file:   # never overwrite evidence
-        with serial.Serial(args.port, args.baud, timeout=0.05) as port:
+        with serial.Serial(args.port, args.baud, timeout=0.05,
+                           exclusive=True if args.vehicle else None) as port:
             port.dtr = False
             time.sleep(0.1)
             port.reset_input_buffer()
             port.dtr = True
             live = Live(port, raw_file)
+            live.vehicle = args.vehicle
             live.wait_text(lambda l: l.startswith('READY ') or l.startswith('INIT: FAIL'), 15)
             if any(l.startswith('INIT: FAIL') for l in live.lines()):
                 raise SystemExit('INIT: FAIL (raw capture saved)')
             t = args.test
+            if args.vehicle:
+                problems = vehicle_preflight(live.lines(), args.expect_spi, args.baud)
+                if problems:
+                    raise SystemExit('--vehicle preflight FAILED, nothing sent (raw capture saved): '
+                                     + '; '.join(problems))
+                print('VEHICLE PREFLIGHT PASS: sniffer variant, CAN1 LISTEN_ONLY, CAN2 CONFIG.', flush=True)
+                if not args.no_operator_prompt:
+                    print('The Mega has been reset and initialized. Connect the CAN1 breakout to the\n'
+                          'motorcycle now if not yet connected (ignition OFF), then switch ignition ON.\n'
+                          'Press Enter to start the passive capture (Ctrl-C aborts).', flush=True)
+                    t_wait = time.monotonic()
+                    while True:  # keep draining serial while waiting for the operator
+                        live.pump()
+                        if select.select([sys.stdin], [], [], 0)[0]:
+                            sys.stdin.readline()
+                            break
+                    print(f'operator confirmed after {time.monotonic() - t_wait:.1f} s', flush=True)
             if t == 'modes':
                 steps = [('HELP', '# Output:'), ('BINARY', '# MODE BINARY'), ('START', '# CAPTURE ON'),
                          ('STATS', 'S '), ('RESET', '# COUNTERS RESET'), ('FOO', '# ERR unknown'),
@@ -593,7 +693,16 @@ def main():
     ap.add_argument('--dlc', type=int, choices=[0, 8], default=8)
     ap.add_argument('--ms', type=int, default=5000)
     ap.add_argument('--seconds', type=float, default=10.0)
+    ap.add_argument('--vehicle', action='store_true',
+                    help='vehicle capture guard: passive test only, p3b_sniffer firmware required, '
+                         'host refuses every command except START/STOP/STATS/BINARY/ASCII/COUNT/HELP')
+    ap.add_argument('--no-operator-prompt', action='store_true',
+                    help='with --vehicle: do not pause for the operator before START')
     a = ap.parse_args()
+    if a.vehicle and a.test != 'passive':
+        ap.error('--vehicle only allows --test passive')
+    if a.vehicle and not a.expect_spi:
+        ap.error('--vehicle requires --expect-spi (4000000 for p3b_sniffer)')
     if a.from_raw:
         sys.exit(revalidate(a))
     if not a.port or not a.output_prefix:

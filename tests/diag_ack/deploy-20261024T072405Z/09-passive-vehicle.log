@@ -1,0 +1,16 @@
+---- boot ----
+MCP2515 #1 CONFIG: PASS
+MCP2515 #2 CONFIG: PASS
+MCP2515 #1 SPI self-check: PASS
+MCP2515 #1 bitrate 500k/8MHz: PASS
+OpenMoto Phase 6 ACK-ONLY CAN bring-up
+ACK-only is ACTIVE bus participation (hardware ACK + error frames)
+NOT FOR VEHICLE USE until docs/diag-ack-bringup.md prerequisites are met
+READY send STATUS
+---- passive STATUS x6 over ~9s (LISTEN_ONLY, no ARM) ----
+[0] STATUS state=IDLE runs=0 mode=SILENT tec=0 rec=0 eflg=0x40 estop=0
+[1] STATUS state=IDLE runs=0 mode=SILENT tec=0 rec=0 eflg=0x40 estop=0
+[2] STATUS state=IDLE runs=0 mode=SILENT tec=0 rec=0 eflg=0x40 estop=0
+[3] STATUS state=IDLE runs=0 mode=SILENT tec=0 rec=0 eflg=0x40 estop=0
+[4] STATUS state=IDLE runs=0 mode=SILENT tec=0 rec=0 eflg=0x40 estop=0
+[5] STATUS state=IDLE runs=0 mode=SILENT tec=0 rec=0 eflg=0x40 estop=0

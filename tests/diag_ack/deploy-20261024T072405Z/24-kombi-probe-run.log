@@ -1,0 +1,21 @@
+---- boot ----
+MCP2515 #1 SPI: PASS
+MCP2515 #2 SPI: PASS
+OpenMoto Phase 4 read-only diagnostic client
+BUILD tx=ENABLED (diag_readonly)
+NOT FOR VEHICLE USE until the prerequisites in docs/diag-active.md are met
+READY send STATUS
+---- ADDR ----
+OK addr tx=6F1 rx=660 txext=60 rxext=F1
+---- PAD ----
+OK pad=00
+---- pre-arm STATUS ----
+STATUS state=IDLE addr=SET pad=SET txn=0 fails=0 estop=0 lockout=0 tx_build=1
+---- ARM 22F150 ----
+ARMED code=644C req=22F150 desc=ReadDataByIdentifier tx_id=6F1 dlc=8 data=600322F150000000 max_tx_frames=2 expires_ms=30000 tx_build=1
+---- CONFIRM 644C (SINGLE 22 F1 50 TRANSMISSION) ----
+TRACE tx id=6F1 dlc=8 data=600322F150000000
+TRACE rx id=660 dlc=8 data=F10662F1500F9070
+RESULT status=OK req=22F150 resp=62F1500F9070 frames_tx=1 frames_rx=1 ignored=0 pending=0 ms=15 silent=1
+---- post-run STATUS ----
+STATUS state=IDLE addr=SET pad=SET txn=1 fails=0 estop=0 lockout=0 tx_build=1

@@ -1,0 +1,32 @@
+# Synthetic ELM327 session log (NOT a real capture) exercising parse_elm_log.
+# Tester lines start with '>'; adapter replies follow. AT/ST lines are setup.
+> ATZ
+ELM327 v1.5
+> ATE0
+OK
+> ATSPB
+OK
+> ATPBC101
+OK
+> ATSH6F1
+OK
+> ATFCSH6F1
+OK
+> ATFCSD60300008
+OK
+> ATFCSM1
+OK
+> ATCEA60
+OK
+> ATCM7FF
+OK
+> ATCF660
+OK
+> ATBI
+OK
+> 22F150
+62 F1 50 01 02 03
+> 22E119
+62 E1 19 00 01 E2 40
+> 22E12C
+62 E1 2C 0F 03 19

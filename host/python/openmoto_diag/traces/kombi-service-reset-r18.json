@@ -1,0 +1,40 @@
+{
+  "_comment": [
+    "KOMBI SERVICE-RESET write sequence for a BMW R18-class modern cluster,",
+    "reconstructed from MotoScan 1.110 bytecode. THIS TRACE CONTAINS WRITES.",
+    "",
+    "The replay engine REFUSES to execute it (status BLOCKED) and no OpenMoto",
+    "firmware or CLI can transmit it: service writes (0x2E) are default-denied by",
+    "diag_core.h serviceForbidden() and by host policy. This file exists to DOCUMENT",
+    "the recovered sequence and to prove, in tests, that the read-only guard blocks it.",
+    "",
+    "REQUEST byte prefixes are confirmed [APK] from sl0.C(dl0,int,Date,Date):",
+    "  * 2E E1 2B + 7 bytes  (10-byte array)  -> write clock            [APK]",
+    "  * 2E E1 2C + 4 bytes  (7-byte array)   -> write next service date [APK]",
+    "  * 2E E1 2D + 2 bytes  (5-byte array)   -> write service distance   [APK]",
+    "sl0.C passes a 2000 ms adapter timeout and sleeps 1500 ms between operations",
+    "(these are app choices, not verified ECU timing). The PAYLOAD bytes below are",
+    "[INFERRED] placeholders (not decoded field encodings) and the EXPECTED",
+    "responses are [INFERRED]. The ORDER (clock, then date, then distance) is [APK].",
+    "",
+    "[UNKNOWN]: whether a diagnostic session (10 xx) or security access (27 xx) is",
+    "required first, the exact field encodings, valid ranges, persistence, and",
+    "read-back. None of this is verified; do not transmit."
+  ],
+  "name": "kombi-service-reset-r18",
+  "target_hex": 96,
+  "tester_hex": 1777,
+  "addressing": "extended",
+  "source": "motoscan-1.110-static-analysis",
+  "evidence": "APK",
+  "steps": [
+    {"request": "22F150", "expected": "62F150010203", "kind": "uds", "evidence": "APK",
+     "note": "ECU probe (same as read trace)"},
+    {"request": "2EE12B0C1E0A0E102D15", "kind": "uds", "evidence": "APK", "delay_ms": 1500,
+     "note": "WRITE clock: 2E E1 2B + 7 bytes [APK prefix/length]; payload INFERRED"},
+    {"request": "2EE12C0F0319FF", "kind": "uds", "evidence": "APK", "delay_ms": 1500,
+     "note": "WRITE next service date: 2E E1 2C + 4 bytes [APK prefix/length]; payload INFERRED"},
+    {"request": "2EE12D1D4C", "kind": "uds", "evidence": "APK", "delay_ms": 1500,
+     "note": "WRITE service distance: 2E E1 2D + 2 bytes [APK prefix/length]; payload INFERRED"}
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "_comment": [
+    "ROLLBACK REFERENCE — the ORIGINAL KOMBI service values read from the real",
+    "2021 BMW R18 on 2026-10-24 (session run-20261024T074627Z), BEFORE any write.",
+    "If a future service reset is ever performed and must be undone, these are the",
+    "exact values to write back. The 'raw' block is the authoritative read-back;",
+    "'restore_writes' are the 2E payloads that reproduce them (same bytes, write SID).",
+    "E119 (odometer) is read-only and is NOT written by sl0.C; kept for context only."
+  ],
+  "captured": "2026-10-24",
+  "vehicle": "2021 BMW R18, KOMBI (cluster 0x60)",
+  "addressing": "tester 0x6F1, resp 0x660, ext tx 0x60 / rx 0xF1, 500 kbps",
+  "raw": {
+    "E12C": "62 E1 2C 09 09 07 EA",
+    "E12D": "62 E1 2D 14 3C",
+    "E119": "62 E1 19 00 00 19 2C",
+    "E12B": "62 E1 2B 00 33 0A 18 0A 07 EA"
+  },
+  "_post_write_state_2026-10-24": {
+    "_comment": "After the live Phase 9 writes. Originals above remain the rollback targets.",
+    "E12C_now": "62 E1 2C 18 0A 07 EB  (next service 24.10.2027)",
+    "E12D_now": "62 E1 2D 27 10  (service distance 10000)",
+    "E119": "62 E1 19 00 00 19 2C  (odometer 6444, unchanged)",
+    "rollback_E12C": "2E E1 2C 09 09 07 EA",
+    "rollback_E12D": "2E E1 2D 14 3C"
+  },
+  "decoded": {
+    "E12C_next_service_date": "09.09.2026 (dd.mm.yyyy)",
+    "E12D_service_distance_raw": 5180,
+    "E119_odometer_raw": 6444,
+    "E12B_clock": "24.10.2026 00:51:10 (hh:mm:ss per confirmed write field order)"
+  },
+  "restore_writes": {
+    "E12C": "2E E1 2C 09 09 07 EA",
+    "E12D": "2E E1 2D 14 3C",
+    "E12B": "2E E1 2B 00 33 0A 18 0A 07 EA"
+  },
+  "phase9_planned_writes": {
+    "_comment": "Owner-approved targets: next service 2027-10-24, interval 10000 km. Odometer 6444 km NEVER modified. E12B clock NOT written. NOT yet transmitted.",
+    "E12C_next_service_date_2027_10_24": "2E E1 2C 18 0A 07 EB",
+    "E12D_service_distance_10000km": "2E E1 2D 27 10",
+    "E12B_clock": "not written (out of scope)",
+    "E119_odometer": "read-only, never written (current 6444 km)"
+  },
+  "notes": [
+    "E12D semantics (remaining vs absolute threshold) NOT resolved from sl0.C; the",
+    "raw value 5180 is what was stored and is what must be restored verbatim.",
+    "E12B is the cluster clock; restoring the exact original timestamp is usually",
+    "unnecessary (the clock advances), but the value is preserved for completeness.",
+    "No write has been performed. These payloads are a reference only."
+  ]
+}

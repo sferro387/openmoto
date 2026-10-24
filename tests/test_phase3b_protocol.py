@@ -315,5 +315,58 @@ class AsciiParsing(unittest.TestCase):
         self.assertEqual([v for k, v in evs if k == 'text'][-2:], ['# MODE ASCII', 'S ms=1 rx=0'])
 
 
+SNIFFER_BANNER = [
+    'OpenMoto Phase 3B CAN sniffer', 'Variant: sniffer (CAN2 held silent in CONFIG)',
+    'Config: spi_hz=4000000 baud=921600 queue=64 protocol=1 pace_bps=20000',
+    'CAN1: LISTEN_ONLY 500000 bps, 8 MHz, CS D10, INT D2',
+    'ISOLATED BENCH ONLY; no OBD, ECU, motorcycle or external 12V',
+    'Init - SPI, bitrate, filters, LISTEN_ONLY',
+    'MCP2515 #1 SPI: PASS', 'MCP2515 #2 SPI: PASS',
+    '# SPI stress hz=4000000 bytes_per_chip=2056 errors1=0 errors2=0',
+    'MCP2515 #1 SPI stress: PASS', 'MCP2515 #2 SPI stress: PASS',
+    'MCP2515 #1 initialized 500k/8MHz: PASS', 'MCP2515 #1 accept-all std+ext filters: PASS',
+    'MCP2515 #1 LISTEN_ONLY: PASS', 'MCP2515 #2 CONFIG (silent): PASS',
+    'READY capture=OFF mode=ASCII; send HELP',
+]
+
+
+class VehicleGuard(unittest.TestCase):
+    def test_sniffer_banner_passes_preflight(self):
+        self.assertEqual(cap.vehicle_preflight(SNIFFER_BANNER, 4000000, 921600), [])
+
+    def test_bench_variant_is_refused(self):
+        lines = [l.replace('Variant: sniffer (CAN2 held silent in CONFIG)',
+                           'Variant: bench (CAN2 test traffic only on BENCH/FLOOD/STREAM)') for l in SNIFFER_BANNER]
+        self.assertTrue(cap.vehicle_preflight(lines, 4000000, 921600))
+
+    def test_missing_listen_only_or_failed_init_is_refused(self):
+        for drop in ('MCP2515 #1 LISTEN_ONLY: PASS', 'MCP2515 #2 CONFIG (silent): PASS',
+                     'MCP2515 #1 SPI stress: PASS', 'READY capture=OFF mode=ASCII; send HELP'):
+            self.assertTrue(cap.vehicle_preflight([l for l in SNIFFER_BANNER if l != drop], 4000000, 921600), drop)
+        self.assertTrue(cap.vehicle_preflight(SNIFFER_BANNER + ['INIT: FAIL; controllers set to CONFIG'],
+                                              4000000, 921600))
+        self.assertTrue(cap.vehicle_preflight(SNIFFER_BANNER, 8000000, 921600))  # wrong SPI clock
+
+    def test_only_passive_commands_are_allowed(self):
+        for ok in ('START', 'STOP', 'STATS', 'BINARY', 'ASCII', 'COUNT', 'HELP'):
+            cap.vehicle_check_command(ok)
+        for bad in ('BENCH', 'FLOOD 8 1000', 'STREAM 0 5000', 'WRAPTEST', 'RESET', 'FOO', ''):
+            with self.assertRaises(cap.VehicleGuardError):
+                cap.vehicle_check_command(bad)
+
+    def test_live_send_refuses_before_writing(self):
+        class FakePort:
+            written = b''
+            def write(self, b): self.written += b
+            def flush(self): pass
+        live = cap.Live(FakePort(), None)
+        live.vehicle = True
+        with self.assertRaises(cap.VehicleGuardError):
+            live.send('STREAM 8 5000')
+        self.assertEqual(live.port.written, b'')
+        live.send('START')
+        self.assertEqual(live.port.written, b'START\n')
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

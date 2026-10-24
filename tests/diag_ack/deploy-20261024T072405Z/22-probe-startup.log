@@ -1,0 +1,19 @@
+---- boot ----
+MCP2515 #1 SPI: PASS
+MCP2515 #2 SPI: PASS
+OpenMoto Phase 4 read-only diagnostic client
+BUILD tx=ENABLED (diag_readonly)
+NOT FOR VEHICLE USE until the prerequisites in docs/diag-active.md are met
+READY send STATUS
+---- STATUS ----
+STATUS state=IDLE addr=UNSET pad=UNSET txn=0 fails=0 estop=0 lockout=0 tx_build=1
+---- POLICY 2EF19000 ----
+POLICY DENY service-forbidden(mutating-or-security)
+---- POLICY 2701 ----
+POLICY DENY service-forbidden(mutating-or-security)
+---- POLICY 1101 ----
+POLICY DENY service-forbidden(mutating-or-security)
+---- POLICY 31010F06 ----
+POLICY DENY service-forbidden(mutating-or-security)
+---- POLICY 22F150 ----
+POLICY ALLOW ReadDataByIdentifier

@@ -1,0 +1,21 @@
+---- boot ----
+MCP2515 #1 CONFIG: PASS
+MCP2515 #2 CONFIG: PASS
+MCP2515 #1 bitrate 500k/8MHz: PASS
+OpenMoto Phase 9 SERVICE-WRITE client
+BUILD tx=ENABLED (service_write)
+WRITES cluster NVM. Idle=LISTEN_ONLY. ARM+CONFIRM per write; read-back verified.
+NOT FOR VEHICLE USE until docs/diag-kombi-service-reset.md prereqs are met
+READY send STATUS
+OK addr tx=6F1 rx=660 txext=60 rxext=F1
+OK pad=00
+READ 22E12C: RESULT status=OK read=22E12C value=62E12C090907EA verified=n/a ms=12 silent=1
+READ 22E12D: RESULT status=OK read=22E12D value=62E12D143C verified=n/a ms=12 silent=1
+READ 22E119: RESULT status=OK read=22E119 value=62E1190000192C verified=n/a ms=14 silent=1
+READ 22E12B: RESULT status=OK read=22E12B value=62E12B011D26180A07EA verified=n/a ms=12 silent=1
+---- COMPARE vs Phase 7 baseline ----
+  22E12C: got 62E12C090907EA expected 62E12C090907EA -> MATCH
+  22E12D: got 62E12D143C expected 62E12D143C -> MATCH
+  22E119: got 62E1190000192C expected 62E1190000192C -> MATCH
+  22E12B: got 62E12B011D26180A07EA expected 62E12B00330A180A07EA -> MISMATCH
+BASELINE_VERIFY: FAIL

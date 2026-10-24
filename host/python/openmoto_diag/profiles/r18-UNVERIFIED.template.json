@@ -1,0 +1,46 @@
+{
+  "_comment": [
+    "OpenMoto read-only diagnostic addressing profile TEMPLATE for a 2021 BMW R18.",
+    "",
+    "EVERY address below is null ON PURPOSE. No R18 diagnostic CAN ID, request/",
+    "response pair, ISO-TP addressing mode, or bitrate has been verified from a",
+    "primary source or from the bike (see docs/diag-active.md sections 2-4). The",
+    "0x130 traffic captured so far is NOT diagnostic traffic and gives no address.",
+    "",
+    "The CLI REFUSES to run against a profile that still has null required fields",
+    "or verified=false. To use it you must (a) obtain the values from a documented",
+    "source or measurement, (b) fill them in, (c) record where each came from in",
+    "'evidence', and (d) set verified=true. Do not guess. A wrong tx_id can make",
+    "the interface the only active node on a segment and get no ACK.",
+    "",
+    "Illustrative note (NOT the R18): many BMW modules use ISO 15765-2 extended",
+    "('BMW-FAST') addressing with tester id 0x6F1 and per-ECU response ids around",
+    "0x600+addr, first data byte carrying the target/source. Whether the R18 uses",
+    "that, normal addressing, functional 0x7DF/0x7E0, or something else is UNKNOWN",
+    "here and must be confirmed before anything is transmitted."
+  ],
+  "schema": "openmoto-diag-addressing/1",
+  "vehicle": "2021 BMW R18",
+  "verified": false,
+  "bitrate_kbps": null,
+  "addressing_mode": null,
+  "padding_byte": null,
+  "tester_present_required": null,
+  "targets": {
+    "_example_name": {
+      "description": null,
+      "tx_id": null,
+      "rx_id": null,
+      "tx_ext": null,
+      "rx_ext": null,
+      "evidence": null
+    }
+  },
+  "evidence": {
+    "connector_pinout": null,
+    "bitrate": null,
+    "addressing": null,
+    "tx_rx_ids": null,
+    "bus_behavior_vs_0x130": null
+  }
+}

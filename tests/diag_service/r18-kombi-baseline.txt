@@ -1,0 +1,55 @@
+================================================================================
+BMW R18 (2021) — KOMBI SERVICE BASELINE
+================================================================================
+Read on: 2026-10-24  (session run-20261024T074627Z)
+Bike state: OBD connected, ignition ON, engine OFF
+Interface: Arduino Mega 2560 + MCP2515, firmware diag_service_read
+Addressing: tester 0x6F1, response 0x660, ext tx 0x60 / rx 0xF1, 500 kbps
+Method: each value = one operator-confirmed ARM/CONFIRM read, status OK,
+        controller returned to LISTEN_ONLY. READ-ONLY (no write/reset/security).
+
+--------------------------------------------------------------------------------
+RAW UDS RESPONSES  (authoritative — exactly what the cluster returned)
+--------------------------------------------------------------------------------
+Next service date  22 E1 2C  ->  62 E1 2C 09 09 07 EA
+Service distance   22 E1 2D  ->  62 E1 2D 14 3C
+Odometer           22 E1 19  ->  62 E1 19 00 00 19 2C
+Clock              22 E1 2B  ->  62 E1 2B 00 33 0A 18 0A 07 EA
+
+--------------------------------------------------------------------------------
+DECODED VALUES   [INFERRED from MotoScan APK field maps — NOT yet bike-confirmed]
+--------------------------------------------------------------------------------
+Next service DATE   : 09.09.2026   (dd.mm.yyyy; day=09 month=09 year=0x07EA=2026)
+Service DISTANCE    : 5180 km      (0x143C, 16-bit big-endian; units/meaning km [INFERRED],
+                                    likely distance-remaining; target/interval UNRESOLVED)
+ODOMETER            : 6444 km      (0x0000192C, unsigned 32-bit big-endian; scale [INFERRED])
+CLOCK               : 24.10.2026 ~10:51  (00 33 0A 18 0A 07 EA ->
+                                    sec=0x00=0, min=0x33=51, hr=0x0A=10,
+                                    day=0x18=24, month=0x0A=10, year=0x07EA=2026)
+
+--------------------------------------------------------------------------------
+CONSISTENCY NOTES
+--------------------------------------------------------------------------------
+- Clock year (0x07EA=2026) matches service-date year -> byte layout internally
+  consistent; clock decodes to a coherent current timestamp.
+- Odometer 6444 km is a plausible reading.
+- Service-distance exact meaning (remaining vs target vs interval) NOT resolved:
+  odo(6444)+dist(5180)=11624, not an obvious round interval.
+
+ACTION BEFORE TRUSTING DECODES: cross-check "09.09.2026" and "6444 km" against
+what the dashboard / MotoScan shows. The RAW bytes above are the record of truth.
+
+--------------------------------------------------------------------------------
+SAFETY STATE
+--------------------------------------------------------------------------------
+- Read-only throughout; 0x2E writes, 0x27 security, service reset, 0x31 routine,
+  coding/adaptation all firmware-DENIED (verified by POLICY checks pre-read).
+- r18-kombi-APK.json remains verified=false (addressing functionally confirmed on
+  the bike in Phase 5/7, but not via electrical B1-B4).
+- B1-B4 electrical prerequisites: UNVERIFIED (operator-accepted override).
+- No service reset performed. A reset (writing 2E E1 2B/2C/2D) stays disabled and
+  is a separate, higher-stakes decision.
+
+Source logs (hardware Mac): tests/diag_service/run-20261024T074627Z/
+  05-read-E12C.log, 06-E12C-result.md, 07-read-remaining.log, 08-baseline.md
+================================================================================

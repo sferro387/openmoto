@@ -1,0 +1,19 @@
+---- boot ----
+MCP2515 #1 CONFIG: PASS
+MCP2515 #2 CONFIG: PASS
+MCP2515 #1 SPI self-check: PASS
+MCP2515 #1 bitrate 500k/8MHz: PASS
+OpenMoto Phase 6 ACK-ONLY CAN bring-up
+ACK-only is ACTIVE bus participation (hardware ACK + error frames)
+NOT FOR VEHICLE USE until docs/diag-ack-bringup.md prerequisites are met
+READY send STATUS
+---- pre-arm STATUS ----
+STATUS state=IDLE runs=0 mode=SILENT tec=0 rec=0 eflg=0x40 estop=0
+---- ARM ----
+ARMED code=030D action=ack-only-bringup note=ACTIVE-participation expires_ms=30000
+---- CONFIRM 030D (single ACK-only window) ----
+RUN passive-window-start (LISTEN_ONLY, silent)
+RUN ack-only-window-start (NORMAL, no TX, ACTIVE: generates ACK/error frames)
+RESULT verdict=NO_ACK_WAS_MISSING_ACKER reason=window-complete passive_rx=116 passive_eflg=0x40 active_rx=21 tec=0 rec=0 eflg=0x00 spi_err=0 silent=1 fresh_confirm_required=1
+---- post-run STATUS ----
+STATUS state=IDLE runs=1 mode=SILENT tec=0 rec=0 eflg=0x40 estop=0

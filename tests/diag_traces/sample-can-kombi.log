@@ -1,0 +1,10 @@
+# Synthetic candump-style CAN/ISO-TP log (NOT a real capture) for parse_can_log.
+# BMW extended addressing: tester id 6F1 carries ext byte 60; KOMBI replies on 660
+# carrying ext byte F1. Frame layout: <ext> <ISO-TP PCI> <data...>
+# Request 1: single frame (PCI 03) -> 22 F1 50. Response: single frame (PCI 06).
+# Request 2: single frame -> 22 E1 2B. Response: first frame (10 08) + consecutive (21).
+6F1 60 03 22 F1 50
+660 F1 06 62 F1 50 01 02 03
+6F1 60 03 22 E1 2B
+660 F1 10 0A 62 E1 2B 0C 1E
+660 F1 21 0A 0E 10 2D 15

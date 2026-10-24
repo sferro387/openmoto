@@ -4,3 +4,24 @@
 .pio/
 __pycache__/
 *.pyc
+tests/diag_host/.build/
+
+# Host-compiled test simulators / offline build output (reproducible)
+tests/**/.build/
+*.o
+*.elf
+*.hex
+
+# Raw and generated CAN captures (large, reproducible from firmware; keep the
+# concise *.summary.json / *.result.json / run.out instead). Fixtures used by
+# tests under tests/diag_traces/ are NOT matched by these patterns.
+*.raw
+*.raw.gz
+*.timeline.json
+*.frames.jsonl
+*.errors.jsonl
+
+# Transient serial capture logs from bench/vehicle runs (evidence is summarized
+# in committed *.md / *.summary.json; raw serial dumps are not tracked).
+tests/phase3b/**/passive.log
+tests/phase2-serial-*.log

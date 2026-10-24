@@ -1,0 +1,33 @@
+{
+  "_comment": [
+    "SIMULATOR-ONLY addressing profile. These ids address the offline mock ECU",
+    "in tests/diag_host/diag_sim.cpp. They are NOT 2021 BMW R18 addresses and",
+    "must never be used on a real vehicle. verified=true here means 'verified",
+    "against the simulator', which is why --port additionally requires",
+    "--i-have-read-prereqs and interactive confirmation."
+  ],
+  "schema": "openmoto-diag-addressing/1",
+  "vehicle": "OFFLINE SIMULATOR (not a real vehicle)",
+  "verified": true,
+  "bitrate_kbps": 500,
+  "addressing_mode": "normal",
+  "padding_byte": 0,
+  "tester_present_required": false,
+  "targets": {
+    "mock_ecu": {
+      "description": "tests/diag_host mock UDS responder",
+      "tx_id": 1777,
+      "rx_id": 1554,
+      "tx_ext": null,
+      "rx_ext": null,
+      "evidence": "Matches MockEcu configure(0x6F1,0x612) in tests/diag_host/diag_sim.cpp"
+    }
+  },
+  "evidence": {
+    "connector_pinout": "n/a (simulator)",
+    "bitrate": "n/a (simulator)",
+    "addressing": "n/a (simulator)",
+    "tx_rx_ids": "n/a (simulator)",
+    "bus_behavior_vs_0x130": "n/a (simulator)"
+  }
+}

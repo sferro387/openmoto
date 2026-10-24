@@ -1,0 +1,6 @@
+  four conditions: healthy / no-ACK(was us) / wrong-bitrate / no-connection OK
+  boot: starts IDLE/SILENT, banner flags ACTIVE participation, no auto-NORMAL
+  confirm: ARM required; wrong CONFIRM disarms and never enters NORMAL
+  estop/stop: ! latches and blocks ARM; STOP returns to silent
+  spi fault: forces fallback, returns silent
+DIAG ACK BRING-UP TESTS PASS (offline; real core vs simulated controller; not a hardware or vehicle result)

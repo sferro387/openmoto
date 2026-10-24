@@ -1,0 +1,39 @@
+{
+  "_comment": [
+    "2021 BMW R18 KOMBI addressing, APK-DERIVED. This profile is deliberately",
+    "verified=false so the loader REFUSES it for real transmission. The addressing",
+    "below is recovered from MotoScan 1.110 static analysis (docs/diag-kombi-findings.md)",
+    "and is strong evidence, but APK evidence alone does NOT prove the specific 2021",
+    "R18 ECU variant will accept it on a real, healthy diagnostic bus. Flipping",
+    "verified to true is a human GO decision that requires the prerequisites in",
+    "docs/diag-kombi-probe.md (confirmed diagnostic tap + healthy acknowledged bus).",
+    "",
+    "Addressing [APK]: tester 0x6F1, KOMBI target byte 0x60, response id 0x660,",
+    "BMW extended addressing (tx ext = target 0x60, rx ext = tester 0xF1),",
+    "500 kbit/s, 0x00 padding to DLC 8 (ELM ATFCSD ...300008)."
+  ],
+  "schema": "openmoto-diag-addressing/1",
+  "vehicle": "2021 BMW R18 (KOMBI, APK-derived, NOT bike-verified)",
+  "verified": false,
+  "bitrate_kbps": 500,
+  "addressing_mode": "extended",
+  "padding_byte": 0,
+  "tester_present_required": null,
+  "targets": {
+    "kombi": {
+      "description": "Instrument cluster (KOMBI), service-reminder owner",
+      "tx_id": 1777,
+      "rx_id": 1632,
+      "tx_ext": 96,
+      "rx_ext": 241,
+      "evidence": "MotoScan 1.110 smali: cr.c(I) const 0x60 (cr.smali:2200); vq4.x ATSH6F1/ATCEA60/ATCF660 (vq4.smali:4455-4490); extended-addr response id 0x660. APK-derived, not bike-confirmed."
+    }
+  },
+  "evidence": {
+    "connector_pinout": "UNKNOWN - R18 diagnostic connector/pins not yet confirmed",
+    "bitrate": "APK: ATPBC101 => 500 kbit/s (ELM PB C1); not bike-measured",
+    "addressing": "APK: BMW protocol-B extended addressing (ATCEA)",
+    "tx_rx_ids": "APK: 0x6F1 tester, 0x60 target byte, 0x660 response",
+    "bus_behavior_vs_0x130": "UNKNOWN - only the unacknowledged 0x130 stream seen so far; not the diagnostic bus"
+  }
+}
